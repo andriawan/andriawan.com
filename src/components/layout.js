@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import SimpleLineIcon from "react-simple-line-icons";
 
 import Header from "./header";
-
 function Layout({ children }) {
   const { title } = children[0].props;
 
@@ -42,7 +41,10 @@ function Layout({ children }) {
                 className="font-bold no-underline text-white"
                 href="https://github.com/andriawan"
               >
-                <SimpleLineIcon color="white" name="social-github"></SimpleLineIcon>
+                <SimpleLineIcon
+                  color="white"
+                  name="social-github"
+                ></SimpleLineIcon>
               </a>
             </p>
 
@@ -51,7 +53,10 @@ function Layout({ children }) {
                 className="font-bold no-underline text-white"
                 href="https://www.linkedin.com/in/andriawan/"
               >
-                <SimpleLineIcon color="white" name="social-linkedin"></SimpleLineIcon>
+                <SimpleLineIcon
+                  color="white"
+                  name="social-linkedin"
+                ></SimpleLineIcon>
               </a>
             </p>
 
@@ -60,7 +65,10 @@ function Layout({ children }) {
                 className="font-bold no-underline text-white"
                 href="https://www.facebook.com/muhammad.irwan.andriawan"
               >
-                <SimpleLineIcon color="white" name="social-facebook"></SimpleLineIcon>
+                <SimpleLineIcon
+                  color="white"
+                  name="social-facebook"
+                ></SimpleLineIcon>
               </a>
             </p>
 
