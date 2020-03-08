@@ -60,6 +60,7 @@ function Header({gradient}) {
               className="block md:inline-block mt-4 md:mt-0 md:ml-6 no-underline text-white"
               key={link.title}
               to={link.route}
+              activeClassName="border-2 border-white rounded-full pb-2 pt-2 pr-4 pl-4"
             >
               {link.title}
             </Link>
