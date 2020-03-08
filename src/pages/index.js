@@ -1,5 +1,4 @@
 import React from "react";
-
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Typed from 'react-typed';
@@ -16,6 +15,8 @@ function IndexPage() {
       zIndex: -1
     }
 
+  
+
   return (
     <Layout>
       <SEO
@@ -25,7 +26,7 @@ function IndexPage() {
 
       <section className="text-center">
 
-        <img className="bg-cover fixed inset-0 w-full h-full" style={{zIndex : -2}} src={Imgx}></img>
+        <img className="object-cover fixed inset-0 w-full h-full" style={{zIndex : -2}} src={Imgx}></img>
         <div className="bg-dark-gray fixed inset-0 w-full h-full" style={gradient}></div>
 
         <h1 className="text-4xl font-bold text-white inline-block my-8 p-3">
@@ -35,5 +36,7 @@ function IndexPage() {
     </Layout>
   );
 }
+
+
 
 export default IndexPage;

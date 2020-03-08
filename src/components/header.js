@@ -1,7 +1,8 @@
+import PropTypes from "prop-types";
 import { graphql, useStaticQuery, Link } from "gatsby";
 import React, { useState } from "react";
 
-function Header() {
+function Header({gradient}) {
   const [isExpanded, toggleExpansion] = useState(false);
   const { site } = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -14,7 +15,7 @@ function Header() {
   `);
 
   return (
-    <header className="text-gray-100">
+    <header className="text-gray-100" style={gradient}>
       <div className="flex flex-wrap items-center justify-between max-w-4xl mx-auto p-4 md:p-8">
         <Link className="flex items-center no-underline text-white" to="/">
           <span className="text-gray-100 font-bold text-xl tracking-tight">
@@ -68,5 +69,9 @@ function Header() {
     </header>
   );
 }
+
+Header.propTypes = {
+  gradient: PropTypes.object
+};
 
 export default Header;
