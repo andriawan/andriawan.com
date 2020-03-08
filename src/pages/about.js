@@ -40,6 +40,9 @@ function AboutPage() {
             alt="A dog relaxing"
             src={andriawan}
           />
+          <a href="https://docs.google.com/document/d/1IaxUSnNcj_s8NGruEGgCi7N1OQdNMGfmu3sGso2nZF8/edit" style={{background: "linear-gradient(to right , #18adfd7d, #1fec93d1)"}} className="mt-6 block text-center text-white font-bold py-2 px-4 rounded">
+            Download My Complete CV
+          </a>
         </figure>
       </section>
     </Layout>
