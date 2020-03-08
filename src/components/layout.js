@@ -24,8 +24,8 @@ function Layout({ children }) {
       </main>
 
       <footer style={gradient}>
-        <nav className="flex justify-between max-w-4xl mx-auto p-4 md:p-8 text-sm">
-          <p className="text-white p-2">
+        <nav className="flex flex-col sm:flex-row sm:justify-between sm:max-w-4xl mx-auto p-4 md:p-8 text-sm">
+          <p className="text-white text-center p-2">
             Created by{` `}
             <a
               className="font-bold no-underline text-white"
@@ -34,51 +34,53 @@ function Layout({ children }) {
               Muhammad Irwan Andriawan
             </a>
           </p>
-          <div className="flex justify-between border-2 rounded-full border-white">
-            <p className="p-3">
-              <a
-                className="font-bold no-underline text-white"
-                href="https://github.com/andriawan"
-              >
-                <SimpleLineIcon
-                  color="white"
-                  name="social-github"
-                ></SimpleLineIcon>
-              </a>
-            </p>
+          <div className="flex justify-center sm:justify-between">
+            <div className="border-2 flex justify-around rounded-full border-white">
+              <p className="p-3">
+                <a
+                  className="font-bold no-underline text-white"
+                  href="https://github.com/andriawan"
+                >
+                  <SimpleLineIcon
+                    color="white"
+                    name="social-github"
+                  ></SimpleLineIcon>
+                </a>
+              </p>
 
-            <p className="p-3">
-              <a
-                className="font-bold no-underline text-white"
-                href="https://www.linkedin.com/in/andriawan/"
-              >
-                <SimpleLineIcon
-                  color="white"
-                  name="social-linkedin"
-                ></SimpleLineIcon>
-              </a>
-            </p>
+              <p className="p-3">
+                <a
+                  className="font-bold no-underline text-white"
+                  href="https://www.linkedin.com/in/andriawan/"
+                >
+                  <SimpleLineIcon
+                    color="white"
+                    name="social-linkedin"
+                  ></SimpleLineIcon>
+                </a>
+              </p>
 
-            <p className="p-3">
-              <a
-                className="font-bold no-underline text-white"
-                href="https://www.facebook.com/muhammad.irwan.andriawan"
-              >
-                <SimpleLineIcon
-                  color="white"
-                  name="social-facebook"
-                ></SimpleLineIcon>
-              </a>
-            </p>
+              <p className="p-3">
+                <a
+                  className="font-bold no-underline text-white"
+                  href="https://www.facebook.com/muhammad.irwan.andriawan"
+                >
+                  <SimpleLineIcon
+                    color="white"
+                    name="social-facebook"
+                  ></SimpleLineIcon>
+                </a>
+              </p>
 
-            <p className="p-3">
-              <a
-                className="font-bold no-underline text-white"
-                href="tel:089637755100"
-              >
-                <SimpleLineIcon color="white" name="phone"></SimpleLineIcon>
-              </a>
-            </p>
+              <p className="p-3">
+                <a
+                  className="font-bold no-underline text-white"
+                  href="tel:089637755100"
+                >
+                  <SimpleLineIcon color="white" name="phone"></SimpleLineIcon>
+                </a>
+              </p>
+            </div>
           </div>
         </nav>
       </footer>

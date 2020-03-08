@@ -13,7 +13,7 @@ function AboutPage() {
       />
 
       <section className="flex flex-col items-center md:flex-row">
-        <div className="md:w-2/3 md:mr-8">
+        <div className="mb-6 md:w-2/3 md:mr-8">
           <p className="pl-4 font-serif">
             Nama saya adalah Muhammad Irwan Andriawan. Seorang Pengembang
             software sejak 2015.
