@@ -15,6 +15,7 @@
     "react": "16.13.0",
     "react-dom": "16.13.0",
     "react-helmet": "5.2.1",
+    "react-simple-line-icons": "^1.0.8",
     "react-typed": "^1.2.0"
   },
   "keywords": [
