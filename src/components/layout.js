@@ -15,7 +15,6 @@ function Layout({ children }) {
       });
     }
   }, []);
-  console.log(title);
   return (
     <div className="flex flex-col font-sans min-h-screen text-gray-900">
       <Header gradient={gradient} />
@@ -35,7 +34,7 @@ function Layout({ children }) {
               Muhammad Irwan Andriawan
             </a>
           </p>
-          <div className="flex justify-between">
+          <div className="flex justify-between border-2 rounded-full border-white">
             <p className="p-3">
               <a
                 className="font-bold no-underline text-white"
