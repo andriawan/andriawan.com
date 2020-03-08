@@ -2,7 +2,7 @@ import React from "react";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import dogIllustration from "../images/dog-illustration.svg";
+import andriawan from "../images/my-face.png";
 
 function AboutPage() {
   return (
@@ -14,21 +14,20 @@ function AboutPage() {
 
       <section className="flex flex-col items-center md:flex-row">
         <div className="md:w-2/3 md:mr-8">
-          <blockquote className="pl-4 font-serif leading-loose text-justify border-l-4 border-gray-900">
-            The point is... to live one&apos;s life in the full complexity of
-            what one is, which is something much darker, more contradictory,
-            more of a maelstrom of impulses and passions, of cruelty, ecstacy,
-            and madness, than is apparent to the civilized being who glides on
-            the surface and fits smoothly into the world.
+          <blockquote className="pl-4 font-serif leading-loose text-justify">
+            Nama saya adalah Muhammad Irwan Andriawan. Seorang Pengembang
+            software sejak 2015. Lahir di Jember, Jawa Timur. Saat ini sedang
+            berkarir di Jakarta sebagai seorang Web Developer Sebuah Perusahaan
+            Software House. Fokus pengembangan saya mencakup Mobile Programming
+            dan Web Programming. Sangat suka memperbarui skill dengan
+            memepelajari hal-hal baru dan kekinian. Aktif Ngeblog dan share
+            kegiatan programming. Sangat terbuka untuk sharing dan kerja sama.
+            Silahkan liat-liat portfolio saya.
           </blockquote>
-
-          <cite className="block mt-4 text-xs font-bold text-right uppercase">
-            – Thomas Nagel
-          </cite>
         </div>
 
         <figure className="w-2/3 md:w-1/3">
-          <img alt="A dog relaxing" src={dogIllustration} />
+          <img alt="A dog relaxing" src={andriawan} />
         </figure>
       </section>
     </Layout>
