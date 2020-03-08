@@ -2,37 +2,35 @@ import React from "react";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import catAndHumanIllustration from "../images/cat-and-human-illustration.svg";
+import Typed from 'react-typed';
+import Imgx from '../images/bg-masthead.jpg'
 
 function IndexPage() {
+  const displayText = [
+    'Hello World :D ^1000',
+    'My Name is Andriawan ^1000',
+    'Welcome to my digital home ^1000']
+  
+    const gradient = {
+      background : 'linear-gradient(to right , #18adfd7d, #1fec93d1)',
+      zIndex: -1
+    }
+
   return (
     <Layout>
       <SEO
-        keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
+        keywords={[`andriawan`, `irwan`, `portofolio`, `homepage`]}
         title="Home"
       />
 
       <section className="text-center">
-        <img
-          alt="Cat and human sitting on a couch"
-          className="block mx-auto w-1/2"
-          src={catAndHumanIllustration}
-        />
 
-        <h2 className="bg-yellow-400 text-2xl font-bold inline-block my-8 p-3">
-          Hey there! Welcome to your first Gatsby site.
-        </h2>
+        <img className="bg-cover fixed inset-0 w-full h-full" style={{zIndex : -2}} src={Imgx}></img>
+        <div className="bg-dark-gray fixed inset-0 w-full h-full" style={gradient}></div>
 
-        <p className="leading-loose">
-          This is a barebones starter for Gatsby styled using{` `}
-          <a
-            className="font-bold no-underline text-gray-900"
-            href="https://tailwindcss.com/"
-          >
-            Tailwind
-          </a>
-          , a utility-first CSS framework.
-        </p>
+        <h1 className="text-4xl font-bold text-white inline-block my-8 p-3">
+          <Typed strings={displayText} typeSpeed={100} fadeOut cursorChar={'_'} loop/>
+        </h1>
       </section>
     </Layout>
   );
