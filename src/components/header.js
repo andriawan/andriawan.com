@@ -52,8 +52,8 @@ function Header({gradient}) {
               title: `About`
             },
             {
-              route: `/contact`,
-              title: `Contact`
+              route: `/portofolio`,
+              title: `Portofolio`
             }
           ].map(link => (
             <Link

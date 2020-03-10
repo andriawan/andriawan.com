@@ -36,7 +36,7 @@ function Layout({ children }) {
           </p>
           <div className="flex justify-center sm:justify-between">
             <div className="border-2 flex justify-around rounded-full border-white">
-              <p className="p-3">
+              <div className="p-3">
                 <a
                   className="font-bold no-underline text-white"
                   href="https://github.com/andriawan"
@@ -46,9 +46,9 @@ function Layout({ children }) {
                     name="social-github"
                   ></SimpleLineIcon>
                 </a>
-              </p>
+              </div>
 
-              <p className="p-3">
+              <div className="p-3">
                 <a
                   className="font-bold no-underline text-white"
                   href="https://www.linkedin.com/in/andriawan/"
@@ -58,9 +58,9 @@ function Layout({ children }) {
                     name="social-linkedin"
                   ></SimpleLineIcon>
                 </a>
-              </p>
+              </div>
 
-              <p className="p-3">
+              <div className="p-3">
                 <a
                   className="font-bold no-underline text-white"
                   href="https://www.facebook.com/muhammad.irwan.andriawan"
@@ -70,16 +70,16 @@ function Layout({ children }) {
                     name="social-facebook"
                   ></SimpleLineIcon>
                 </a>
-              </p>
+              </div>
 
-              <p className="p-3">
+              <div className="p-3">
                 <a
                   className="font-bold no-underline text-white"
                   href="tel:089637755100"
                 >
                   <SimpleLineIcon color="white" name="phone"></SimpleLineIcon>
                 </a>
-              </p>
+              </div>
             </div>
           </div>
         </nav>
