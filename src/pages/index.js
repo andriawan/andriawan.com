@@ -34,7 +34,7 @@ function IndexPage() {
           style={gradient}
         ></div>
 
-        <h1 className="text-4xl font-bold text-white inline-block my-8 p-3">
+        <h1 className="md:text-4xl sm:text-3xl text-2xl font-bold text-white inline-block my-8 p-3">
           <Typed
             strings={displayText}
             typeSpeed={100}
