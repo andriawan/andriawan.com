@@ -19,7 +19,9 @@ function Layout({ children }) {
     <div className="flex flex-col font-sans min-h-screen text-gray-900">
       <Header gradient={gradient} />
 
-      <main className="flex flex-col flex-1 md:justify-center max-w-4xl mx-auto px-4 py-8 md:p-8 w-full">
+      <main
+        className={`flex ${title === "Home" ? "justify-center" : ""} flex-col flex-1 md:justify-center max-w-4xl mx-auto px-4 py-8 md:p-8 w-full`}
+      >
         {children}
       </main>
 
