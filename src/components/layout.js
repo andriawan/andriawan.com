@@ -15,6 +15,8 @@ function Layout({ children }) {
       });
     }
 
+    if(localStorage.dark === undefined) localStorage.dark = false;
+
     if (JSON.parse(localStorage.dark)) {
       document.documentElement.classList.add("mode-dark");
     } else {
