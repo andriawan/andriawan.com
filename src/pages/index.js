@@ -1,4 +1,3 @@
-
 import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -35,9 +34,7 @@ function IndexPage() {
           style={{ zIndex: -2 }}
           src={Imgx}
         ></img>
-        <div
-          className="my-gradient dark:my-gradient bg-dark-gray fixed inset-0 w-full h-full"
-        ></div>
+        <div className="my-gradient dark:my-gradient bg-dark-gray fixed inset-0 w-full h-full"></div>
 
         <h1 className="md:text-4xl sm:text-3xl text-2xl font-bold text-white inline-block my-8 p-3">
           <Typed

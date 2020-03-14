@@ -13,7 +13,7 @@ function PortofolioPage() {
         title="Portofolio"
       />
       <section>
-        <div className="flex flex-wrap" style={{boxSizing:'border-box'}}>
+        <div className="flex flex-wrap" style={{ boxSizing: "border-box" }}>
           {data.map((value, index) => (
             <ProjectList key={index} data={value}></ProjectList>
           ))}

@@ -15,7 +15,7 @@ function Layout({ children }) {
       });
     }
 
-    if(localStorage.dark === undefined) localStorage.dark = false;
+    if (localStorage.dark === undefined) localStorage.dark = false;
 
     if (JSON.parse(localStorage.dark)) {
       document.documentElement.classList.add("mode-dark");
@@ -26,12 +26,8 @@ function Layout({ children }) {
   return (
     <div
       id="container"
-      className={
-        `flex flex-col font-sans min-h-screen text-gray-900
-        ${
-          title === "Home" ? "dark:bg-transparent" : "dark:bg-gray-900"
-        }`
-      }
+      className={`flex flex-col font-sans min-h-screen text-gray-900
+        ${title === "Home" ? "dark:bg-transparent" : "dark:bg-gray-900"}`}
     >
       <Header gradient={gradient} />
 

@@ -2,7 +2,12 @@ import PropTypes from "prop-types";
 import React from "react";
 
 function PortoFolioList(prop) {
-  let { project_name, project_description, project_image_url, project_url } = prop.data;
+  let {
+    project_name,
+    project_description,
+    project_image_url,
+    project_url
+  } = prop.data;
   return (
     <div className="w-full sm:w-1/2 md:w-1/3 p-4">
       <div className="dark:bg-gray-800 rounded overflow-hidden shadow-lg">
