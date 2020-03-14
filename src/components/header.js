@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { ReactComponent as Sun } from "../svg/sun.svg";
 import { ReactComponent as Moon } from "../svg/moon.svg";
 
-function Header({ gradient }) {
+function Header({ gradient, currentTime }) {
   const [isExpanded, toggleExpansion] = useState(false);
   const [isDark, toggleDark] = useState(null);
   const { site } = useStaticQuery(graphql`
@@ -18,7 +18,9 @@ function Header({ gradient }) {
   `);
 
   useEffect(() => {
-    if (localStorage.dark === undefined) localStorage.dark = false;
+    if (currentTime > 17 || currentTime < 6) {
+      localStorage.dark = true;
+    }
 
     if (isDark == null) {
       toggleDark(JSON.parse(localStorage.dark));
@@ -111,7 +113,8 @@ function Header({ gradient }) {
 }
 
 Header.propTypes = {
-  gradient: PropTypes.object
+  gradient: PropTypes.object,
+  currentTime: PropTypes.number
 };
 
 export default Header;

@@ -6,6 +6,7 @@ import Header from "./header";
 function Layout({ children }) {
   const { title } = children[0].props;
   const [gradient, setGradient] = useState({});
+  const currentTime = new Date().getHours();
 
   useEffect(() => {
     if (title !== "Home") {
@@ -15,7 +16,9 @@ function Layout({ children }) {
       });
     }
 
-    if (localStorage.dark === undefined) localStorage.dark = false;
+    if (currentTime > 17 || currentTime < 6) {
+      localStorage.dark = true;
+    }
 
     if (JSON.parse(localStorage.dark)) {
       document.documentElement.classList.add("mode-dark");
@@ -29,7 +32,7 @@ function Layout({ children }) {
       className={`flex flex-col font-sans min-h-screen text-gray-900
         ${title === "Home" ? "dark:bg-transparent" : "dark:bg-gray-900"}`}
     >
-      <Header gradient={gradient} />
+      <Header gradient={gradient} currentTime={currentTime} />
 
       <main
         className={`flex ${
