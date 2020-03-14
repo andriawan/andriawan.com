@@ -18,9 +18,8 @@ function Header({ gradient, currentTime }) {
   `);
 
   useEffect(() => {
-    if (currentTime > 17 || currentTime < 6) {
-      localStorage.dark = true;
-    }
+    if (currentTime > 17 || currentTime < 6) localStorage.dark = true;
+    if (localStorage.dark === undefined) localStorage.dark = false;
 
     if (isDark == null) {
       toggleDark(JSON.parse(localStorage.dark));
