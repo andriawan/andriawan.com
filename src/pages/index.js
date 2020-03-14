@@ -1,3 +1,4 @@
+
 import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -11,10 +12,15 @@ function IndexPage() {
     "Welcome to my digital home ^1000"
   ];
 
-  const gradient = {
-    background: "linear-gradient(to right , #18adfd7d, #1fec93d1)",
-    zIndex: -1
-  };
+  // const gradient = {
+  //   background: "linear-gradient(to right , #18adfd7d, #1fec93d1)",
+  //   zIndex: -1
+  // };
+
+  // const gradientDark = {
+  //   background: `linear-gradient(to right, rgba(76, 92, 101, 0.49), rgba(0, 0, 0, 0.82))`,
+  //   zIndex: -1
+  // };
 
   return (
     <Layout>
@@ -30,8 +36,7 @@ function IndexPage() {
           src={Imgx}
         ></img>
         <div
-          className="bg-dark-gray fixed inset-0 w-full h-full"
-          style={gradient}
+          className="my-gradient dark:my-gradient bg-dark-gray fixed inset-0 w-full h-full"
         ></div>
 
         <h1 className="md:text-4xl sm:text-3xl text-2xl font-bold text-white inline-block my-8 p-3">

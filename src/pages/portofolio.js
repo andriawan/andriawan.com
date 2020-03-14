@@ -6,12 +6,11 @@ import data from "../data/portofolio_list";
 import ProjectList from "../components/portofolioList";
 
 function PortofolioPage() {
-  console.log(data);
   return (
     <Layout>
       <SEO
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
-        title="Contact"
+        title="Portofolio"
       />
       <section>
         <div className="flex flex-wrap" style={{boxSizing:'border-box'}}>

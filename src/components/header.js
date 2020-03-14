@@ -1,9 +1,12 @@
 import PropTypes from "prop-types";
 import { graphql, useStaticQuery, Link } from "gatsby";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { ReactComponent as Sun } from "../svg/sun.svg";
+import { ReactComponent as Moon } from "../svg/moon.svg";
 
-function Header({gradient}) {
+function Header({ gradient }) {
   const [isExpanded, toggleExpansion] = useState(false);
+  const [isDark, toggleDark] = useState(null);
   const { site } = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -13,6 +16,18 @@ function Header({gradient}) {
       }
     }
   `);
+
+  useEffect(() => {
+    if (isDark == null) {
+      toggleDark(JSON.parse(localStorage.dark));
+    }
+
+    if (isDark) {
+      document.documentElement.classList.add("mode-dark");
+    } else {
+      document.documentElement.classList.remove("mode-dark");
+    }
+  }, [isDark]);
 
   return (
     <header className="text-gray-100" style={gradient}>
@@ -65,7 +80,29 @@ function Header({gradient}) {
               {link.title}
             </Link>
           ))}
+          <button
+            className="mt-4 md:mt-0 md:ml-6 invisible md:visible no-underline"
+            onClick={() => {
+              toggleDark(!isDark);
+              localStorage.dark = !isDark;
+            }}
+          >
+            {isDark == true ? <Sun /> : <Moon />}
+          </button>
         </nav>
+        <button
+          onClick={() => {
+            toggleDark(!isDark);
+            localStorage.dark = !isDark;
+          }}
+          className="fixed right-0 bottom-0 mr-4 mb-4 visible md:invisible"
+        >
+          {isDark == true ? (
+            <Sun className="rounded-full px-3 py-3 bg-white w-12 h-12 text-center text-3xl text-black" />
+          ) : (
+            <Moon className="rounded-full px-3 py-3 bg-black w-12 h-12 text-center text-3xl text-white" />
+          )}
+        </button>
       </div>
     </header>
   );
