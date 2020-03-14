@@ -18,6 +18,8 @@ function Header({ gradient }) {
   `);
 
   useEffect(() => {
+    if(localStorage.dark === undefined) localStorage.dark = false;
+    
     if (isDark == null) {
       toggleDark(JSON.parse(localStorage.dark));
     }
