@@ -5,22 +5,39 @@ import SimpleLineIcon from "react-simple-line-icons";
 import Header from "./header";
 function Layout({ children }) {
   const { title } = children[0].props;
-
   const [gradient, setGradient] = useState({});
+  const currentTime = new Date().getHours();
+
   useEffect(() => {
     if (title !== "Home") {
       setGradient({
         ...gradient,
-        background: "linear-gradient(to right , #18adfd7d, #1fec93d1)"
+        background: `linear-gradient(to right , #18adfd7d, #1fec93d1)`
       });
+    }
+
+    if (currentTime > 17 || currentTime < 6) {
+      localStorage.dark = true;
+    }
+
+    if (JSON.parse(localStorage.dark)) {
+      document.documentElement.classList.add("mode-dark");
+    } else {
+      document.documentElement.classList.remove("mode-dark");
     }
   }, []);
   return (
-    <div className="flex flex-col font-sans min-h-screen text-gray-900">
-      <Header gradient={gradient} />
+    <div
+      id="container"
+      className={`flex flex-col font-sans min-h-screen text-gray-900
+        ${title === "Home" ? "dark:bg-transparent" : "dark:bg-gray-900"}`}
+    >
+      <Header gradient={gradient} currentTime={currentTime} />
 
       <main
-        className={`flex ${title === "Home" ? "justify-center" : ""} flex-col flex-1 md:justify-center max-w-4xl mx-auto px-4 py-8 md:p-8 w-full`}
+        className={`flex ${
+          title === "Home" ? "justify-center" : ""
+        } flex-col flex-1 md:justify-center max-w-4xl mx-auto px-4 py-8 md:p-8 w-full`}
       >
         {children}
       </main>

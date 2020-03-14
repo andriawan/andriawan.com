@@ -1,3 +1,4 @@
+path = require("path");
 module.exports = {
   siteMetadata: {
     title: `Muhammad Irwan Andriawan`,
@@ -5,7 +6,17 @@ module.exports = {
     author: `@andriawan`
   },
   plugins: [
-    "gatsby-plugin-eslint",
+    "gatsby-plugin-svgr",
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: path.join(__dirname, `src`, `images`)
+      }
+    },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-eslint`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -32,8 +43,22 @@ module.exports = {
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {
+        printRejected: true,
         tailwind: true,
-        purgeOnly: [`src/css/style.css`]
+        purgeOnly: [`src/css/style.css`, `src`],
+        whitelist: [`mode-dark`],
+        content: [
+          path.join(process.cwd(), `./public/*.html`),
+          path.join(process.cwd(), "src/**/!(*.d).{ts,js,jsx,tsx,md,mdx}"),
+          path.join(
+            process.cwd(),
+            "./node_modules/tailwindcss-dark-mode/prefers-dark.js"
+          ),
+          path.join(
+            process.cwd(),
+            `./node_modules/tailwindcss-dark-mode/index.js`
+          )
+        ]
       }
     },
     `gatsby-plugin-offline`
