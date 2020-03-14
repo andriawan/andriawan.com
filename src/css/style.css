@@ -1,17 +1,17 @@
 /* purgecss start ignore */
 @tailwind base;
 @tailwind components;
-/* purgecss end ignore */
-@tailwind utilities;
 @responsive {
-  @variants dark {
+    @variants dark {
+      .my-gradient {
+        background: linear-gradient(180deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.71));
+        z-index: -1;
+      }
+    }
     .my-gradient {
-      background: linear-gradient(180deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.71));
+      background: linear-gradient(to right, #18adfd7d, #1fec93d1);
       z-index: -1;
     }
   }
-  .my-gradient {
-    background: linear-gradient(to right, #18adfd7d, #1fec93d1);
-    z-index: -1;
-  }
-}
+/* purgecss end ignore */
+@tailwind utilities;
