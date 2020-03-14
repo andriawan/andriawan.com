@@ -16,9 +16,8 @@ function Layout({ children }) {
       });
     }
 
-    if (currentTime > 17 || currentTime < 6) {
-      localStorage.dark = true;
-    }
+    if (currentTime > 17 || currentTime < 6) localStorage.dark = true;
+    if (localStorage.dark === undefined) localStorage.dark = false;
 
     if (JSON.parse(localStorage.dark)) {
       document.documentElement.classList.add("mode-dark");
