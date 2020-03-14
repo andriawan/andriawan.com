@@ -6,7 +6,7 @@ module.exports = {
     author: `@andriawan`
   },
   plugins: [
-    'gatsby-plugin-svgr',
+    "gatsby-plugin-svgr",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -45,10 +45,11 @@ module.exports = {
       options: {
         printRejected: true,
         tailwind: true,
-        purgeOnly: [`src/css/style.css`],
+        purgeOnly: [`src/css/style.css`, `src`],
         whitelist: [`mode-dark`],
         content: [
           path.join(process.cwd(), `./public/*.html`),
+          path.join(process.cwd(), "src/**/!(*.d).{ts,js,jsx,tsx,md,mdx}"),
           path.join(
             process.cwd(),
             "./node_modules/tailwindcss-dark-mode/prefers-dark.js"
