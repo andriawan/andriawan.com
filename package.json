@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-tailwind",
-  "description": "Gatsby starter styled with Tailwind",
-  "version": "4.0.0",
-  "author": "Taylor Bryant <taylor@bryant.io>",
+  "name": "andriawan-website-and-portofolio",
+  "description": "Andriawan Personal Website and Portofolio",
+  "version": "0.1.0",
+  "author": "Muhammad Irwan Andriawan <irwan@andriawan.com>",
   "dependencies": {
     "@svgr/webpack": "^5.2.0",
     "gatsby": "2.19.29",
@@ -24,10 +24,9 @@
     "react-typed": "^1.2.0"
   },
   "keywords": [
-    "gatsby",
-    "tailwind",
-    "tailwindcss",
-    "purgecss"
+    "andriawan",
+    "website",
+    "portofolio"
   ],
   "license": "MIT",
   "scripts": {
