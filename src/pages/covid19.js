@@ -6,7 +6,7 @@ import SimpleLineIcon from "react-simple-line-icons";
 import { ReactComponent as Indonesia } from "../svg/indonesia.svg";
 
 function Covid19() {
-  const height = "h-40";
+  const height = "h-32 sm:h-40";
   const BASE_URL = "https://api.kawalcorona.com";
   const [data, refreshData] = useState(null);
   useEffect(() => {
@@ -39,7 +39,7 @@ function Covid19() {
         title="COVID 19 INFO"
       />
       <section>
-        <p className="dark:text-gray-500 text-center font-sans text-4xl pb-2 text-gray-800">
+        <p className="dark:text-gray-500 text-center font-sans text-2xl sm:text-4xl pb-2 text-gray-800">
           GLOBAL DATA COVID19
         </p>
 
@@ -106,7 +106,7 @@ function Covid19() {
           </div>
           <div className="w-full sm:w-1/2">
             <div
-              className={`${height} rounded-md shadow-lg text-white p-4 m-2 bg-red-500`}
+              className={`h-40 rounded-md shadow-lg text-white p-4 m-2 bg-red-500`}
             >
               <div className="flex h-16">
                 <Indonesia className="inline mr-2" />
