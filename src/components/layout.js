@@ -31,11 +31,11 @@ function Layout({ children }) {
       className={`flex flex-col font-sans min-h-screen text-gray-900
         ${title === "Home" ? "dark:bg-transparent" : "dark:bg-gray-900"}`}
     >
-      <Header gradient={gradient} currentTime={currentTime} />
+      <Header className={`${title !== "Home" ? "z-10 fixed w-full" : ""}`} gradient={gradient} currentTime={currentTime} />
 
       <main
         className={`flex ${
-          title === "Home" ? "justify-center" : ""
+          title === "Home" ? "justify-center" : "mt-12 md:mt-24"
         } flex-col flex-1 md:justify-center max-w-4xl mx-auto px-4 py-8 md:p-8 w-full`}
       >
         {children}
