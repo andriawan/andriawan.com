@@ -72,6 +72,10 @@ function Header({ gradient, currentTime }) {
             {
               route: `/portofolio`,
               title: `Portofolio`
+            },
+            {
+              route: `/covid19`,
+              title: `Covid19`
             }
           ].map(link => (
             <Link
