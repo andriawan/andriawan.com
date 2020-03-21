@@ -17,7 +17,7 @@ function Covid19() {
       let indonesia = await (await fetch(`${BASE_URL}/`)).json();
 
       indonesia = await indonesia.filter(obj => {
-        return obj.attributes.OBJECTID === 63;
+        return obj.attributes.Country_Region === "Indonesia";
       });
 
       await refreshData({
