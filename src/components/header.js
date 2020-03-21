@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { ReactComponent as Sun } from "../svg/sun.svg";
 import { ReactComponent as Moon } from "../svg/moon.svg";
 
-function Header({ gradient, currentTime }) {
+function Header({ className, gradient, currentTime }) {
   const [isExpanded, toggleExpansion] = useState(false);
   const [isDark, toggleDark] = useState(null);
   const { site } = useStaticQuery(graphql`
@@ -33,10 +33,10 @@ function Header({ gradient, currentTime }) {
   }, [isDark]);
 
   return (
-    <header className="text-gray-100" style={gradient}>
+    <header className={`text-gray-100 ${className}`} style={gradient}>
       <div className="flex flex-wrap items-center justify-between max-w-4xl mx-auto p-4 md:p-8">
         <Link className="flex items-center no-underline text-white" to="/">
-          <span className="text-gray-100 font-bold text-xl tracking-tight">
+          <span className="text-gray-100 font-bold md:text-xl tracking-tight">
             {site.siteMetadata.title}
           </span>
         </Link>
@@ -117,7 +117,8 @@ function Header({ gradient, currentTime }) {
 
 Header.propTypes = {
   gradient: PropTypes.object,
-  currentTime: PropTypes.number
+  currentTime: PropTypes.number,
+  className: PropTypes.string
 };
 
 export default Header;
