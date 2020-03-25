@@ -7,8 +7,10 @@ function AboutPage() {
   return (
     <Layout>
       <SEO
-        keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
-        title="About"
+        keywords={[`andriawan`, `irwan`, `portofolio`, `about`]}
+        title="About Muhammad Irwan Andriawan"
+        description="All description about andriawan in profession IT industry"
+        image="https://res.cloudinary.com/andriawan/image/upload/v1585108772/images/about_me.png"
       />
 
       <section className="flex flex-col items-center md:flex-row">

@@ -2,8 +2,9 @@ import { useStaticQuery, graphql } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 import Helmet from "react-helmet";
+import favicon from "../images/home.png"
 
-function SEO({ description, lang, meta, keywords, title }) {
+function SEO({ description, lang, meta, keywords, title, image}) {
   const { site } = useStaticQuery(graphql`
     query DefaultSEOQuery {
       site {
@@ -11,12 +12,14 @@ function SEO({ description, lang, meta, keywords, title }) {
           title
           description
           author
+          url
         }
       }
     }
   `);
 
   const metaDescription = description || site.siteMetadata.description;
+  const metaImage = image || site.siteMetadata.url + favicon;
 
   return (
     <Helmet
@@ -39,6 +42,18 @@ function SEO({ description, lang, meta, keywords, title }) {
         {
           property: `og:type`,
           content: `website`
+        },
+        {
+          property: `og:image`,
+          content: metaImage,
+        },
+        {
+          property: `twitter:image`,
+          content: metaImage,
+        },
+        {
+          property: `image`,
+          content: metaImage,
         },
         {
           name: `twitter:card`,
@@ -67,7 +82,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         )
         .concat(meta)}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s`}
     />
   );
 }
@@ -75,7 +90,8 @@ function SEO({ description, lang, meta, keywords, title }) {
 SEO.defaultProps = {
   lang: `en`,
   keywords: [],
-  meta: []
+  meta: [],
+  image: undefined
 };
 
 SEO.propTypes = {
@@ -83,7 +99,8 @@ SEO.propTypes = {
   keywords: PropTypes.arrayOf(PropTypes.string),
   lang: PropTypes.string,
   meta: PropTypes.array,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  image: PropTypes.string
 };
 
 export default SEO;
