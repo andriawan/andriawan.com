@@ -4,7 +4,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import data from "../data/portofolio_list";
 import ProjectList from "../components/portofolioList";
-import Banner from "../images/bg-masthead.jpg";
+import Banner from "../images/home.png";
 
 function PortofolioPage() {
   return (

@@ -11,7 +11,7 @@ function Header({ className, gradient, currentTime }) {
     query SiteTitleQuery {
       site {
         siteMetadata {
-          title
+          author_name
         }
       }
     }
@@ -37,7 +37,7 @@ function Header({ className, gradient, currentTime }) {
       <div className="flex flex-wrap items-center justify-between max-w-4xl mx-auto p-4 md:p-8">
         <Link className="flex items-center no-underline text-white" to="/">
           <span className="text-gray-100 font-bold md:text-xl tracking-tight">
-            {site.siteMetadata.title}
+            {site.siteMetadata.author_name}
           </span>
         </Link>
 

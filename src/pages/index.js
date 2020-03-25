@@ -17,7 +17,6 @@ function IndexPage() {
         keywords={[`andriawan`, `irwan`, `portofolio`, `homepage`]}
         title="Home"
         description="Andriawan's Landing page"
-        image={Banner}
       />
 
       <section className="text-center">

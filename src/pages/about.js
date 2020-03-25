@@ -2,15 +2,16 @@ import React from "react";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import AboutMe from "../images/about_me.png"
 
 function AboutPage() {
   return (
     <Layout>
       <SEO
         keywords={[`andriawan`, `irwan`, `portofolio`, `about`]}
-        title="About"
+        title="About Muhammad Irwan Andriawan"
         description="All description about andriawan in profession IT industry"
-        image="https://res.cloudinary.com/andriawan/image/upload/w_300/v1583851598/images/my-face.png"
+        image={AboutMe}
       />
 
       <section className="flex flex-col items-center md:flex-row">

@@ -2,7 +2,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 import Helmet from "react-helmet";
-import favicon from "../images/favicon.png"
+import favicon from "../images/home.png"
 
 function SEO({ description, lang, meta, keywords, title, image}) {
   const { site } = useStaticQuery(graphql`
@@ -19,7 +19,7 @@ function SEO({ description, lang, meta, keywords, title, image}) {
   `);
 
   const metaDescription = description || site.siteMetadata.description;
-  const metaImage = image || favicon;
+  const metaImage = site.siteMetadata.url + (image || favicon);
 
   return (
     <Helmet

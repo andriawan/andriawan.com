@@ -4,7 +4,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import SimpleLineIcon from "react-simple-line-icons";
 import { ReactComponent as Indonesia } from "../svg/indonesia.svg";
-import Banner from "../images/bg-masthead.jpg";
+import Banner from "../images/home.png";
 
 function Covid19() {
   const height = "h-32 sm:h-40";

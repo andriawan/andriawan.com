@@ -4,6 +4,7 @@ module.exports = {
     title: `andriawan.com`,
     description: `Andriawan's personal and professional website`,
     author: `@andriawan`,
+    author_name: `Muhammad Irwan Andriawan`,
     url: `https://andriawan.com`
   },
   plugins: [
