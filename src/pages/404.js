@@ -11,11 +11,11 @@ function NotFoundPage() {
       <div>
         <img
           alt="Ghost getting abducted by aliens"
-          className="block mx-auto w-1/2"
+          className="block mx-auto w-1/2 h-full pt-4 md:h-64"
           src={abductionIllustration}
         />
-        <h2 className="bg-yellow-400 text-2xl font-bold inline-block my-8 p-3">
-          Looks like this page is a ghost that got abducted by aliens...
+        <h2 className="dark:text-gray-500loc text-center text-gray-700 text-xl sm:text-2xl font-bold my-8 p-3">
+          Sorry, we have nothing for you here :(
         </h2>
       </div>
     </Layout>
