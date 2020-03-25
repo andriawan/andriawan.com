@@ -10,6 +10,7 @@ function AboutPage() {
         keywords={[`andriawan`, `irwan`, `portofolio`, `about`]}
         title="About"
         description="All description about andriawan in profession IT industry"
+        image="https://res.cloudinary.com/andriawan/image/upload/w_300/v1583851598/images/my-face.png"
       />
 
       <section className="flex flex-col items-center md:flex-row">
