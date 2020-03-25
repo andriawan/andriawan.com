@@ -37,6 +37,7 @@ function Covid19() {
       <SEO
         keywords={[`andriawan`, `covid19`, `covid`, `wuhan`]}
         title="COVID 19 INFO"
+        description="Global Data Info for COVID19"
       />
       <section>
         <p className="dark:text-gray-500 text-center font-sans text-2xl sm:text-4xl pb-2 text-gray-800">

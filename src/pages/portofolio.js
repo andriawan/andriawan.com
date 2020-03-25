@@ -9,8 +9,9 @@ function PortofolioPage() {
   return (
     <Layout>
       <SEO
-        keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
+        keywords={[`andriawan`, `irwan`, `portofolio`, `about`]}
         title="Portofolio"
+        description="All about andriawan works"
       />
       <section>
         <div className="flex flex-wrap" style={{ boxSizing: "border-box" }}>

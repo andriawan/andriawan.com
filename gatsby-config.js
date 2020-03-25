@@ -2,8 +2,10 @@ path = require("path");
 module.exports = {
   siteMetadata: {
     title: `Muhammad Irwan Andriawan`,
-    description: `Andriawan's personal and professional website build on top of gatsby`,
-    author: `@andriawan`
+    description: `Andriawan's personal and professional website`,
+    author: `@andriawan`,
+    url: `https://andriawan.com`,
+    image: `src/images/favicon.png`
   },
   plugins: [
     "gatsby-plugin-svgr",

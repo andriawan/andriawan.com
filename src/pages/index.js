@@ -26,6 +26,7 @@ function IndexPage() {
       <SEO
         keywords={[`andriawan`, `irwan`, `portofolio`, `homepage`]}
         title="Home"
+        description="Andriawan's Landing page"
       />
 
       <section className="text-center">
