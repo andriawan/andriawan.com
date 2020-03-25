@@ -19,7 +19,7 @@ function SEO({ description, lang, meta, keywords, title, image}) {
   `);
 
   const metaDescription = description || site.siteMetadata.description;
-  const metaImage = site.siteMetadata.url + (image || favicon);
+  const metaImage = image || site.siteMetadata.url + favicon;
 
   return (
     <Helmet

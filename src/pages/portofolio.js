@@ -4,7 +4,6 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import data from "../data/portofolio_list";
 import ProjectList from "../components/portofolioList";
-import Banner from "../images/home.png";
 
 function PortofolioPage() {
   return (
@@ -13,7 +12,7 @@ function PortofolioPage() {
         keywords={[`andriawan`, `irwan`, `portofolio`, `about`]}
         title="Portofolio"
         description="All about andriawan works"
-        image={Banner}
+        image="https://res.cloudinary.com/andriawan/image/upload/v1585108772/images/home.png"
       />
       <section>
         <div className="flex flex-wrap" style={{ boxSizing: "border-box" }}>

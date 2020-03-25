@@ -4,7 +4,6 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import SimpleLineIcon from "react-simple-line-icons";
 import { ReactComponent as Indonesia } from "../svg/indonesia.svg";
-import Banner from "../images/home.png";
 
 function Covid19() {
   const height = "h-32 sm:h-40";
@@ -39,7 +38,7 @@ function Covid19() {
         keywords={[`andriawan`, `covid19`, `covid`, `wuhan`]}
         title="COVID 19 INFO"
         description="Global Data Info for COVID19"
-        image={Banner}
+        image="https://res.cloudinary.com/andriawan/image/upload/v1585108772/images/home.png"
       />
       <section>
         <p className="dark:text-gray-500 text-center font-sans text-2xl sm:text-4xl pb-2 text-gray-800">

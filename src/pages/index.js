@@ -17,6 +17,7 @@ function IndexPage() {
         keywords={[`andriawan`, `irwan`, `portofolio`, `homepage`]}
         title="Home"
         description="Andriawan's Landing page"
+        image="https://res.cloudinary.com/andriawan/image/upload/v1585108772/images/about_me.png"
       />
 
       <section className="text-center">

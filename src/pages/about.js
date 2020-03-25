@@ -2,7 +2,6 @@ import React from "react";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import AboutMe from "../images/about_me.png"
 
 function AboutPage() {
   return (
@@ -11,7 +10,7 @@ function AboutPage() {
         keywords={[`andriawan`, `irwan`, `portofolio`, `about`]}
         title="About Muhammad Irwan Andriawan"
         description="All description about andriawan in profession IT industry"
-        image={AboutMe}
+        image="https://res.cloudinary.com/andriawan/image/upload/v1585108772/images/about_me.png"
       />
 
       <section className="flex flex-col items-center md:flex-row">
