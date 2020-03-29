@@ -78,7 +78,7 @@ function Template({
             </span>
           </h2>
           <div
-            className="blog-post-content px-4 py-4 md:px-0 md:py-0 text-xl md:text-xl dark:text-gray-500"
+            className="blog-post-content px-4 py-4 md:px-0 md:py-0 text-  xl md:text-xl dark:text-gray-500"
             dangerouslySetInnerHTML={{ __html: html }}
           />
         </div>
@@ -94,7 +94,7 @@ function Template({
               Muhammad Irwan Andriawan
             </a>
           </p>
-          <div className="flex justify-center sm:justify-between">
+          <div className="flex pb-20 justify-center sm:justify-between">
             <div className="flex justify-around">
               <div className="p-3">
                 <a
