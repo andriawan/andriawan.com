@@ -14,4 +14,8 @@
     background: linear-gradient(to right, #18adfd7d, #1fec93d1);
     z-index: -1;
   }
+
+  .blog-post-content > p {
+    @apply pb-6 font-serif;
+  }
 }
