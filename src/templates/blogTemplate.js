@@ -78,7 +78,7 @@ function Template({
             </span>
           </h2>
           <div
-            className="blog-post-content px-4 py-4 md:px-0 md:py-0 text-2xl md:text-xl dark:text-gray-500"
+            className="blog-post-content px-4 py-4 md:px-0 md:py-0 text-xl md:text-xl dark:text-gray-500"
             dangerouslySetInnerHTML={{ __html: html }}
           />
         </div>
