@@ -74,6 +74,10 @@ function Header({ className, gradient, currentTime }) {
               title: `Portofolio`
             },
             {
+              route: `/blog`,
+              title: `Blog`
+            },
+            {
               route: `/covid19`,
               title: `Covid19`
             }

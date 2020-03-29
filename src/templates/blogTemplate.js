@@ -1,0 +1,193 @@
+import React, { useState, useEffect } from "react";
+import { graphql, Link } from "gatsby";
+import PropTypes from "prop-types";
+import SEO from "../components/seo";
+import SimpleLineIcon from "react-simple-line-icons";
+import { ReactComponent as Sun } from "../svg/sun.svg";
+import { ReactComponent as Moon } from "../svg/moon.svg";
+import { ReactComponent as Calendar } from "../svg/calendar.svg";
+import { ReactComponent as Time } from "../svg/time.svg";
+import { ReactComponent as LeftArrow } from "../svg/left-arrow.svg";
+import { ReactComponent as Home } from "../svg/home.svg";
+
+function Template({
+  data // this prop will be injected by the GraphQL query below.
+}) {
+  const { markdownRemark } = data; // data.markdownRemark holds your post data
+  const { frontmatter, html, timeToRead } = markdownRemark;
+  const [isDark, toggleDark] = useState(null);
+  const currentTime = new Date().getHours();
+
+  useEffect(() => {
+    if (currentTime > 17 || currentTime < 6) localStorage.dark = true;
+    if (localStorage.dark === undefined) localStorage.dark = false;
+
+    if (isDark == null) {
+      toggleDark(JSON.parse(localStorage.dark));
+    }
+
+    if (isDark) {
+      document.documentElement.classList.add("mode-dark");
+    } else {
+      document.documentElement.classList.remove("mode-dark");
+    }
+  }, [isDark]);
+
+  return (
+    <div className="dark:bg-black">
+      <SEO
+        keywords={[`andriawan`, `blog`, `posts`, `tutorial`]}
+        title={frontmatter.title}
+        description={frontmatter.title}
+        image="https://res.cloudinary.com/andriawan/image/upload/v1585108772/images/home.png"
+      />
+      <header>
+        <div className="flex flex-wrap items-center md:flex hidden justify-between max-w-screen-sm mx-auto py-8">
+          <Link
+            className="flex items-center no-underline text-teal-400"
+            to="/blog"
+          >
+            <LeftArrow className="text-teal-400 text-4xl" />
+          </Link>
+          <Link className="flex items-center no-underline text-teal-400" to="/">
+            <Home className="text-teal-400 text-xl" />
+          </Link>
+          <button
+            onClick={() => {
+              toggleDark(!isDark);
+              localStorage.dark = !isDark;
+            }}
+          >
+            {isDark == true ? (
+              <Sun className="text-center text-teal-400 text-4xl" />
+            ) : (
+              <Moon className="text-center text-teal-400 text-4xl" />
+            )}
+          </button>
+        </div>
+      </header>
+      <div className="blog-post-container font-serif max-w-screen-sm m-auto">
+        <div className="blog-post">
+          <h1 className="text-4xl px-4 py-4 md:px-0 md:py-0 dark:text-teal-400">{frontmatter.title}</h1>
+          <h2 className="text-xl px-4 py-4 md:px-0 md:py-0 text-gray-500 dark:text-gray-400 md:pb-4">
+            <Calendar className="inline-block dark:text-teal-400 pr-2" />
+            {frontmatter.date}
+            <Time className="inline-block dark:text-teal-400 ml-4 pr-2" />
+            <span className="text-gray-500 dark:text-gray-400 text-xl">
+              {timeToRead} min reading
+            </span>
+          </h2>
+          <div
+            className="blog-post-content px-4 py-4 md:px-0 md:py-0 text-  xl md:text-xl dark:text-gray-500"
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
+        </div>
+      </div>
+      <footer>
+        <nav className="flex flex-col sm:flex-row sm:justify-between sm:max-w-screen-sm mx-auto md:py-8 text-sm">
+          <p className="text-gray-700 text-center p-2">
+            Created by{` `}
+            <a
+              className="font-bold no-underline text-teal-400"
+              href="https://andriawan.com"
+            >
+              Muhammad Irwan Andriawan
+            </a>
+          </p>
+          <div className="flex pb-20 justify-center sm:justify-between">
+            <div className="flex justify-around">
+              <div className="p-3">
+                <a
+                  className="font-bold no-underline text-teal-400"
+                  href="https://github.com/andriawan"
+                >
+                  <SimpleLineIcon
+                    color="teal"
+                    name="social-github"
+                  ></SimpleLineIcon>
+                </a>
+              </div>
+
+              <div className="p-3">
+                <a
+                  className="font-bold no-underline text-white"
+                  href="https://www.linkedin.com/in/andriawan/"
+                >
+                  <SimpleLineIcon
+                    color="teal"
+                    name="social-linkedin"
+                  ></SimpleLineIcon>
+                </a>
+              </div>
+
+              <div className="p-3">
+                <a
+                  className="font-bold no-underline text-white"
+                  href="https://www.facebook.com/muhammad.irwan.andriawan"
+                >
+                  <SimpleLineIcon
+                    color="teal"
+                    name="social-facebook"
+                  ></SimpleLineIcon>
+                </a>
+              </div>
+
+              <div className="p-3">
+                <a
+                  className="font-bold no-underline text-white"
+                  href="tel:089637755100"
+                >
+                  <SimpleLineIcon color="teal" name="phone"></SimpleLineIcon>
+                </a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </footer>
+      <div className="fixed inset-x-0 bottom-0 h-16 bg-gray-700 md:hidden">
+        <div className="flex flex-wrap items-center h-full justify-around mx-auto px-2 py-2">
+          <Link
+            className="flex items-center no-underline text-teal-400"
+            to="/blog"
+          >
+            <LeftArrow className="text-center h-full text-teal-400 text-4xl" />
+          </Link>
+          <Link className="flex items-center no-underline text-teal-400" to="/">
+            <Home className="text-teal-400 text-xl" />
+          </Link>
+          <button
+            onClick={() => {
+              toggleDark(!isDark);
+              localStorage.dark = !isDark;
+            }}
+          >
+            {isDark == true ? (
+              <Sun className="text-center text-teal-400 text-4xl" />
+            ) : (
+              <Moon className="text-center text-teal-400 text-4xl" />
+            )}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+export const pageQuery = graphql`
+  query($path: String!) {
+    markdownRemark(frontmatter: { path: { eq: $path } }) {
+      html
+      timeToRead
+      frontmatter {
+        date(formatString: "MMMM DD, YYYY")
+        path
+        title
+      }
+    }
+  }
+`;
+Template.propTypes = {
+  data: PropTypes.object,
+  markdownRemark: PropTypes.object
+};
+
+export default Template;
