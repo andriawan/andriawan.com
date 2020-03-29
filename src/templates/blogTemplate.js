@@ -14,7 +14,7 @@ function Template({
   data // this prop will be injected by the GraphQL query below.
 }) {
   const { markdownRemark } = data; // data.markdownRemark holds your post data
-  const { frontmatter, html, timeToRead, exerpt } = markdownRemark;
+  const { frontmatter, html, timeToRead, excerpt } = markdownRemark;
   const [isDark, toggleDark] = useState(null);
   const currentTime = new Date().getHours();
 
@@ -38,7 +38,7 @@ function Template({
       <SEO
         keywords={[`andriawan`, `blog`, `posts`, `tutorial`]}
         title={frontmatter.title}
-        description={exerpt}
+        description={excerpt}
         image="https://res.cloudinary.com/andriawan/image/upload/v1585108772/images/home.png"
       />
       <header>
