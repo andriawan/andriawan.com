@@ -4,5 +4,10 @@
 
 <p>This repository contains source code for my personal and professional website andriawan.com</p>
 
+## Home
+
 ![Alt Text](https://github.com/andriawan/andriawan.com/blob/master/homepage.gif)
+
+## Blog Posts
+
 ![Alt Text](https://github.com/andriawan/andriawan.com/blob/master/blog-posts.gif)
