@@ -2,9 +2,9 @@ import { useStaticQuery, graphql } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 import Helmet from "react-helmet";
-import favicon from "../images/home.png"
+import favicon from "../images/home.png";
 
-function SEO({ description, lang, meta, keywords, title, image}) {
+function SEO({ description, lang, meta, keywords, title, image, options }) {
   const { site } = useStaticQuery(graphql`
     query DefaultSEOQuery {
       site {
@@ -18,30 +18,39 @@ function SEO({ description, lang, meta, keywords, title, image}) {
     }
   `);
 
+  let url_checking = "";
+
+  options != undefined
+    ? options.internal_image == true
+      ? (url_checking = site.siteMetadata.url)
+      : (url_checking = "")
+    : (url_checking = "");
+
   const metaDescription = description || site.siteMetadata.description;
-  const metaImage = image || site.siteMetadata.url + favicon;
+  const metaImage =
+    url_checking + image || site.siteMetadata.url + favicon;
 
   return (
     <Helmet
       htmlAttributes={{
-        lang
+        lang,
       }}
       meta={[
         {
           name: `description`,
-          content: metaDescription
+          content: metaDescription,
         },
         {
           property: `og:title`,
-          content: title
+          content: title,
         },
         {
           property: `og:description`,
-          content: metaDescription
+          content: metaDescription,
         },
         {
           property: `og:type`,
-          content: `website`
+          content: `website`,
         },
         {
           property: `og:image`,
@@ -57,26 +66,26 @@ function SEO({ description, lang, meta, keywords, title, image}) {
         },
         {
           name: `twitter:card`,
-          content: `summary`
+          content: `summary`,
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author
+          content: site.siteMetadata.author,
         },
         {
           name: `twitter:title`,
-          content: title
+          content: title,
         },
         {
           name: `twitter:description`,
-          content: metaDescription
-        }
+          content: metaDescription,
+        },
       ]
         .concat(
           keywords.length > 0
             ? {
                 name: `keywords`,
-                content: keywords.join(`, `)
+                content: keywords.join(`, `),
               }
             : []
         )
@@ -91,7 +100,7 @@ SEO.defaultProps = {
   lang: `en`,
   keywords: [],
   meta: [],
-  image: undefined
+  image: undefined,
 };
 
 SEO.propTypes = {
@@ -100,7 +109,8 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.array,
   title: PropTypes.string.isRequired,
-  image: PropTypes.string
+  image: PropTypes.string,
+  options: PropTypes.object,
 };
 
 export default SEO;

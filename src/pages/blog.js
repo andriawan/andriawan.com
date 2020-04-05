@@ -8,7 +8,6 @@ import { ReactComponent as Calendar } from "../svg/calendar.svg";
 function Blog({ data }) {
   const { edges } = data.allMdx;
   useEffect(() => {
-    console.log(edges);
   }, []);
 
   return (
