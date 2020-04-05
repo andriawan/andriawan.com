@@ -1,0 +1,11 @@
+---
+path: "/blog/saya-sangat-terbuka-terhadap-feedback"
+date: "2017-03-27 10:39:00"
+title: "Saya Sangat Terbuka Terhadap Feedback"
+---
+
+Saya adalah manusia. Manusia tidak akan pernah mungkin 100% benar dalam melakukan tindakan. Oleh karena itu, saya sangat mengapresiasi anda jika anda berkenan untuk memberikan saran, kritik, maupun sanggahan terhadap apapun yang saya tulis dalam blog ini.
+
+Tujuan saya ialah belajar. Tentunya dari sumber-sumber terpercaya dan dapat dibuktikan kebenarannya. Terkadang, saya juga bisa salah memahami suatu hal. Saya akan sangat senang jika anda memberikan perbaikan maupun klarifikasi. Saling mengingatkan. Walau hanya berbentuk tulisan.
+
+Seperti penulis lainnya, Setiap penulis ingin tulisannya sampai kepada pembaca. Setiap penulis ingin tulisannya bermanfaat bagi pembaca. Semoga saya bisa menghadirkan hal tersebut pada tulisan-tulisan dalam blog ini.

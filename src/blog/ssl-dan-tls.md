@@ -1,0 +1,36 @@
+---
+path: "/blog/ssl-dan-tls"
+date: "2017-03-27 08:39:00"
+title: "SSL dan TLS"
+---
+
+Sejak mengenal wireshark, atau network monitoring tool, saya menjadi agak sedikit paranoid dengan yang namanya security (Keamanan). Saya tidak menyadari bahwa semua lalu lintas data dalam sebuah jaringan dengan sangat mudah dapat dilihat oleh siapa saja dengan sedikit kemampuan monitoring network. Selain itu saya juga paranoid dengan plain-text. Alasan ini, menyebabkan saya terjun ke dunia security walaupun tidak begitu dalam. Saya mulai mengenal beberapa hal mengenai security term. Seperti encryption, SSL, TLS dan CA. Mungkin istilah-istilah tersebut cukup asing bagi anda. Namun, jika anda sering berinteraksi dengan keamanan jaringan. Kalian pasti akan mengenal istilah-istilah tersebut. Kali ini saya akan membahas SSL dan TLS berdasarkan pengalaman saya.
+
+
+
+Melanjutkan mengenai paranoid saya mengenai plain-text, taukah kalian segala jenis interaksi anda dengan server yang melibatkan autentikasi (keamanan dengan menginputkan password) sebenarnya tidak benar-benar aman? Mengapa demikian?
+
+
+
+Oke, mungkin anda menggunakan fasilitas yang disediakan seperti form password html dengan membuat password anda berubah menjadi seperti ini *****. Sekilas password anda terlihat aman, namun sejatinya tidak begitu. Pada dasarnya semua inputan dari user dalam bentuk apapun (seperti form) akan melalui jaringan dalam bentuk plain-text. Plain-text adalah text murni, apa adanya. Meskipun saat anda mengisi form password berbentuk angka bintang, Siapapun yang memiliki pengetahuan tentang monitoring paket-paket data dalam sebuah jaringan dapat dengan mudah mengetahui password anda. Sangat mudah. Dalam kasus ini, anda harus mulai khawatir.
+
+
+
+Dalam kasus lain, jika anda sering berinteraksi dengan FTP (File transfer protokol) sebaiknya anda juga harus memperhatikan hal tersebut. Anda harus mulai memperhatikan apakah server penyedia file yang anda gunakan sudah memperhatikan sisi keamanan.
+
+
+
+Untunglah, anda dan saya bukan satu-satunya atau dua-duanya yang mengkhawatirkan tentang ini.  Jauh-jauh hari, ilmuwan komputer dan Security Expert sudah memikirkan apa yang kita pikiran. Mereka lebih dahulu khawatir tentang bagaimana informasi ditransmisikan melalui jaringan dengan aman tanpa ada gangguan dari pihak yang tidak semestinya tau.
+
+
+
+Ada banyak teknologi keamanan yang ada. Tentunya ilmuwan komputer dan Security Expert telah berusaha sebaik mungkin dalam mendesign security sistem terbaik. Hal yang menarik perhatian saya adalah SSL (Secure Socket Layer) dan generasi penerusnya TLS(Transport Layer Security). Pembahasan teknis mengenai bagaimana SSL/TLS dibuat dan bagaimana ia bekerja membutuhkan pengetahuan dan pemahaman yang kompleks. Jadi, karena saya juga seorang pemula di dunia keamanana jaringan, saya akan menjelaskannya berdasarkan apa yang saya pahami (anda bebas memberi saran, kritik ataupun sanggahan).
+
+
+
+Jadi, analoginya sederhana, sebelum anda mulai mengirimkan data apapun ke server, anda akan membuat perjanjian dengan server untuk membuat jalur dan pengiriman data secara aman. Bagaimana caranya? Dengan enkripsi. 
+
+Enkripsi, sederhananya ialah proses mengubah plain-text menjadi random text (sesuatu yang tidak dimengerti manusia namun dimengerti oleh si penyedia enkripsi itu sendiri). Perjanjian anda dengan server mencakup tentang bagaiamana data dienkripsi, autentikasi apakah pengirim data benar-benar dari anda dan sebaliknya anda juga mengautentikasi apakah data yang dikirim benar-benar dikirim ke server. 
+
+Setelah perjanjian dibuat dan disepakati, maka segala hal yang akan anda kirim, akan melalui tahap enkripsi terlebih dahulu untuk kemudian dikirim melalui jaringan. Sampai sini, anda boleh lega, karena meskipun seseorang melihat data yang anda kirim lewat jaringan, mereka hanya akan melihat enkripsi dari data anda. Sederhananya seperti itu, namun teknisnya jauh lebih rumit dari itu
+
