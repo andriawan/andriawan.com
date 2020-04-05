@@ -29,6 +29,18 @@ module.exports = {
     `gatsby-plugin-eslint`,
     `gatsby-plugin-react-helmet`,
     {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`]
+      }
+    },
+    {
+      resolve: "gatsby-plugin-page-creator",
+      options: {
+        path: path.join(__dirname, `src`, `blog`)
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `andriawan personal website`,
