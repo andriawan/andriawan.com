@@ -9,14 +9,18 @@ import { ReactComponent as Calendar } from "../svg/calendar.svg";
 import { ReactComponent as Time } from "../svg/time.svg";
 import { ReactComponent as LeftArrow } from "../svg/left-arrow.svg";
 import { ReactComponent as Home } from "../svg/home.svg";
+import Img from "gatsby-image";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 
 function Template({
-  data // this prop will be injected by the GraphQL query below.
+  data, // this prop will be injected by the GraphQL query below.
 }) {
-  const { markdownRemark } = data; // data.markdownRemark holds your post data
-  const { frontmatter, html, timeToRead, excerpt } = markdownRemark;
+  const { mdx } = data; // data.mdx holds your post data
+  const { frontmatter, timeToRead, excerpt, body } = mdx;
   const [isDark, toggleDark] = useState(null);
   const currentTime = new Date().getHours();
+
+  console.log(mdx);
 
   useEffect(() => {
     if (currentTime > 17 || currentTime < 6) localStorage.dark = true;
@@ -39,7 +43,7 @@ function Template({
         keywords={[`andriawan`, `blog`, `posts`, `tutorial`]}
         title={frontmatter.title}
         description={excerpt}
-        image="https://res.cloudinary.com/andriawan/image/upload/v1585108772/images/home.png"
+        image={frontmatter.banner == null ? `https://res.cloudinary.com/andriawan/image/upload/v1585108772/images/home.png` : frontmatter.banner.publicURL}
       />
       <header>
         <div className="flex flex-wrap items-center md:flex hidden justify-between max-w-screen-sm mx-auto py-8">
@@ -68,7 +72,9 @@ function Template({
       </header>
       <div className="blog-post-container font-serif max-w-screen-sm m-auto">
         <div className="blog-post">
-          <h1 className="text-4xl px-4 py-4 md:px-0 md:py-0 dark:text-teal-400">{frontmatter.title}</h1>
+          <h1 className="text-4xl px-4 py-4 md:px-0 md:py-0 dark:text-teal-400">
+            {frontmatter.title}
+          </h1>
           <h2 className="text-xl px-4 py-4 md:px-0 md:py-0 text-gray-500 dark:text-gray-400 md:pb-4">
             <Calendar className="inline-block dark:text-teal-400 pr-2" />
             {frontmatter.date}
@@ -77,10 +83,14 @@ function Template({
               {timeToRead} min reading
             </span>
           </h2>
-          <div
-            className="blog-post-content px-4 py-4 md:px-0 md:py-0 text-  xl md:text-xl dark:text-gray-500"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
+          {frontmatter.banner === null ? (
+            ""
+          ) : (
+            <Img className="mb-6" fluid={frontmatter.banner.childImageSharp.fluid} />
+          )}
+          <div className="blog-post-content pt-4 px-4 py-4 md:px-0 md:py-0 text-xl md:text-xl dark:text-gray-500">
+            <MDXRenderer>{body}</MDXRenderer>
+          </div>
         </div>
       </div>
       <footer>
@@ -174,21 +184,33 @@ function Template({
 }
 export const pageQuery = graphql`
   query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
+    mdx(frontmatter: { path: { eq: $path } }) {
+      body
       timeToRead
       excerpt
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         path
         title
+        banner {
+          publicURL
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              src
+              srcSet
+              aspectRatio
+              sizes
+              base64
+            }
+          }
+        }
       }
     }
   }
 `;
 Template.propTypes = {
   data: PropTypes.object,
-  markdownRemark: PropTypes.object
+  mdx: PropTypes.object,
 };
 
 export default Template;

@@ -6,7 +6,7 @@ import { graphql } from "gatsby";
 import { ReactComponent as Calendar } from "../svg/calendar.svg";
 
 function Blog({ data }) {
-  const { edges } = data.allMarkdownRemark;
+  const { edges } = data.allMdx;
   useEffect(() => {
     console.log(edges);
   }, []);
@@ -48,7 +48,7 @@ export default Blog;
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMdx(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
           id
