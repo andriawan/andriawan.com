@@ -20,8 +20,6 @@ function Template({
   const [isDark, toggleDark] = useState(null);
   const currentTime = new Date().getHours();
 
-  console.log(mdx);
-
   useEffect(() => {
     if (currentTime > 17 || currentTime < 6) localStorage.dark = true;
     if (localStorage.dark === undefined) localStorage.dark = false;
@@ -44,6 +42,7 @@ function Template({
         title={frontmatter.title}
         description={excerpt}
         image={frontmatter.banner == null ? `https://res.cloudinary.com/andriawan/image/upload/v1585108772/images/home.png` : frontmatter.banner.publicURL}
+        options={{internal_image : frontmatter.banner !== null}}
       />
       <header>
         <div className="flex flex-wrap items-center md:flex hidden justify-between max-w-screen-sm mx-auto py-8">
