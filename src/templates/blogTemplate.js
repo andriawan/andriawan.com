@@ -83,12 +83,12 @@ function Template({
               {timeToRead} min reading
             </span>
           </h2>
-          {frontmatter.banner.childImageSharp === null ? (
+          {frontmatter.banner === null ? (
             ""
           ) : (
-            <Img fluid={frontmatter.banner.childImageSharp.fluid} />
+            <Img className="mb-6" fluid={frontmatter.banner.childImageSharp.fluid} />
           )}
-          <div className="blog-post-content pt-4 px-4 py-4 md:px-0 md:py-6 text-xl md:text-xl dark:text-gray-500">
+          <div className="blog-post-content pt-4 px-4 py-4 md:px-0 md:py-0 text-xl md:text-xl dark:text-gray-500">
             <MDXRenderer>{body}</MDXRenderer>
           </div>
         </div>
