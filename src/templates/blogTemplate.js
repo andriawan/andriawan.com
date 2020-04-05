@@ -43,7 +43,7 @@ function Template({
         keywords={[`andriawan`, `blog`, `posts`, `tutorial`]}
         title={frontmatter.title}
         description={excerpt}
-        image="https://res.cloudinary.com/andriawan/image/upload/v1585108772/images/home.png"
+        image={frontmatter.banner == null ? `https://res.cloudinary.com/andriawan/image/upload/v1585108772/images/home.png` : frontmatter.banner.publicURL}
       />
       <header>
         <div className="flex flex-wrap items-center md:flex hidden justify-between max-w-screen-sm mx-auto py-8">
