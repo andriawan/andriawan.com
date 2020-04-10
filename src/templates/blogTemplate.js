@@ -23,7 +23,6 @@ function Template({
   const currentTime = new Date().getHours();
 
   const handleButtonBackToTop = useCallback(() => {
-    console.log(isInViewport(document.querySelector('.date-creation')));
       if(isInViewport(document.querySelector('.date-creation'))){
         document.querySelector('.up-arrow').classList.add('scale-down-animation');
         document.querySelector('.up-arrow').classList.remove('scale-up-animation');
@@ -57,7 +56,6 @@ function Template({
     document.addEventListener('scroll', handleButtonBackToTop)
 
     return () => {
-      console.log('clean up');
       document.removeEventListener('scroll', handleButtonBackToTop);
     }
 
