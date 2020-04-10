@@ -20,7 +20,14 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `markdown`,
-        path: path.join(__dirname, `src`, `blog`)
+        path: path.join(__dirname, `blog`)
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown`,
+        path: path.join(__dirname, `blog`, `images`)
       }
     },
     `gatsby-transformer-remark`,
@@ -33,12 +40,6 @@ module.exports = {
       options: {
         extensions: [`.mdx`, `.md`]
       }
-    },
-    {
-      resolve: "gatsby-plugin-page-creator",
-      options: {
-        path: path.join(__dirname, `src`, `blog`)
-      },
     },
     {
       resolve: `gatsby-plugin-manifest`,

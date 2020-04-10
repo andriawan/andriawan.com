@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import { ReactComponent as Calendar } from "../svg/calendar.svg";
 
 function Blog({ data }) {
@@ -26,9 +26,9 @@ function Blog({ data }) {
           return (
             <div className="pb-4" key={edge.node.id}>
               <h2 className="text-2xl dark:text-gray-400">
-                <a href={edge.node.frontmatter.path}>
+                <Link key={edge.node.id} to={edge.node.frontmatter.path}>
                   {edge.node.frontmatter.title}
-                </a>
+                </Link>
               </h2>
               <p className="text-base dark:text-teal-400 text-teal-700"><Calendar className="inline-block dark:text-teal-400 mr-2" />{edge.node.frontmatter.date}</p>
             </div>
