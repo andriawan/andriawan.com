@@ -24,6 +24,13 @@ function Layout({ children }) {
     } else {
       document.documentElement.classList.remove("mode-dark");
     }
+
+    document.querySelector('.loader').classList.add('opacity-0');
+
+    setTimeout(() => {
+      document.querySelector('.loader').classList.add('h-0', 'w-0');  
+    }, 500);
+
   }, []);
   return (
     <div
