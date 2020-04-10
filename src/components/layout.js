@@ -12,7 +12,7 @@ function Layout({ children }) {
     if (title !== "Home") {
       setGradient({
         ...gradient,
-        background: `linear-gradient(to right , #18adfd7d, #1fec93d1)`
+        background: `linear-gradient(to right , #18adfd, #1fec93)`
       });
     }
 
