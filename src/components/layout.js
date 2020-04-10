@@ -12,7 +12,7 @@ function Layout({ children }) {
     if (title !== "Home") {
       setGradient({
         ...gradient,
-        background: `linear-gradient(to right , #18adfd7d, #1fec93d1)`
+        background: `linear-gradient(to right , #18adfd, #1fec93)`
       });
     }
 
@@ -24,6 +24,13 @@ function Layout({ children }) {
     } else {
       document.documentElement.classList.remove("mode-dark");
     }
+
+    document.querySelector('.loader').classList.add('opacity-0');
+
+    setTimeout(() => {
+      document.querySelector('.loader').classList.add('h-0', 'w-0');  
+    }, 500);
+
   }, []);
   return (
     <div

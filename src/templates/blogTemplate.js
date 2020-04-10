@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { graphql, Link } from "gatsby";
 import PropTypes from "prop-types";
 import SEO from "../components/seo";
@@ -9,8 +9,10 @@ import { ReactComponent as Calendar } from "../svg/calendar.svg";
 import { ReactComponent as Time } from "../svg/time.svg";
 import { ReactComponent as LeftArrow } from "../svg/left-arrow.svg";
 import { ReactComponent as Home } from "../svg/home.svg";
+import { ReactComponent as UpArrow } from "../svg/arrow-up.svg";
 import Img from "gatsby-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
+import isInViewport from "../util/viewport";
 
 function Template({
   data, // this prop will be injected by the GraphQL query below.
@@ -19,6 +21,17 @@ function Template({
   const { frontmatter, timeToRead, excerpt, body } = mdx;
   const [isDark, toggleDark] = useState(null);
   const currentTime = new Date().getHours();
+
+  const handleButtonBackToTop = useCallback(() => {
+      if(isInViewport(document.querySelector('.date-creation'))){
+        document.querySelector('.up-arrow').classList.add('scale-down-animation');
+        document.querySelector('.up-arrow').classList.remove('scale-up-animation');
+      }else{
+        document.querySelector('.up-arrow').classList.add('h-auto', 'w-auto');
+        document.querySelector('.up-arrow').classList.add('scale-up-animation');
+        document.querySelector('.up-arrow').classList.remove('scale-down-animation');
+      }
+  },[isDark]);
 
   useEffect(() => {
     if (currentTime > 17 || currentTime < 6) localStorage.dark = true;
@@ -33,6 +46,19 @@ function Template({
     } else {
       document.documentElement.classList.remove("mode-dark");
     }
+
+    document.querySelector('.loader').classList.add('opacity-0');
+
+    setTimeout(() => {
+      document.querySelector('.loader').classList.add('h-0', 'w-0');  
+    }, 500);
+
+    document.addEventListener('scroll', handleButtonBackToTop)
+
+    return () => {
+      document.removeEventListener('scroll', handleButtonBackToTop);
+    }
+
   }, [isDark]);
 
   return (
@@ -75,7 +101,7 @@ function Template({
             {frontmatter.title}
           </h1>
           <h2 className="text-xl px-4 py-4 md:px-0 md:py-0 text-gray-500 dark:text-gray-400 md:pb-4">
-            <Calendar className="inline-block dark:text-teal-400 pr-2" />
+            <Calendar className="date-creation inline-block dark:text-teal-400 pr-2" />
             {frontmatter.date}
             <Time className="inline-block dark:text-teal-400 ml-4 pr-2" />
             <span className="text-gray-500 dark:text-gray-400 text-xl">
@@ -92,6 +118,14 @@ function Template({
           </div>
         </div>
       </div>
+      <button onClick={() => {
+        window.scroll({
+          top: 0, 
+          behavior: 'smooth'
+        });
+      }} className="opacity-0 fixed invisible sm:visible up-arrow h-0 w-0 right-0 bottom-0 mr-4 mb-4 bg-gray-800 rounded-full visible">
+        <UpArrow className="text-center text-teal-400 text-5xl"/>
+        </button>
       <footer>
         <nav className="flex flex-col sm:flex-row sm:justify-between sm:max-w-screen-sm mx-auto md:py-8 text-sm">
           <p className="text-gray-700 text-center p-2">
