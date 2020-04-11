@@ -3,9 +3,9 @@ import { graphql, useStaticQuery, Link } from "gatsby";
 import React, { useState, useEffect } from "react";
 import { ReactComponent as Sun } from "../svg/sun.svg";
 import { ReactComponent as Moon } from "../svg/moon.svg";
+import BottomNavigation from "./bottomNavigation";
 
 function Header({ className, gradient, currentTime }) {
-  const [isExpanded, toggleExpansion] = useState(false);
   const [isDark, toggleDark] = useState(null);
   const { site } = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -36,29 +36,27 @@ function Header({ className, gradient, currentTime }) {
     <header className={`text-gray-100 ${className}`} style={gradient}>
       <div className="flex flex-wrap items-center justify-between max-w-4xl mx-auto p-4 md:p-8">
         <Link className="flex items-center no-underline text-white" to="/">
-          <span className="text-gray-100 font-bold md:text-xl tracking-tight">
+          <span className="text-gray-100 md:text-xl tracking-tight">
             {site.siteMetadata.author_name}
           </span>
         </Link>
 
         <button
-          className="block md:hidden border border-white flex items-center px-3 py-2 rounded text-white"
-          onClick={() => toggleExpansion(!isExpanded)}
+          className="block md:hidden flex items-center px-3 py-2 rounded text-white"
+          onClick={() => {
+            toggleDark(!isDark);
+            localStorage.dark = !isDark;
+          }}
         >
-          <svg
-            className="fill-current h-3 w-3"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <title>Menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-          </svg>
+          {isDark == true ? (
+            <Sun className="text-white" />
+          ) : (
+            <Moon className="text-white" />
+          )}
         </button>
 
         <nav
-          className={`${
-            isExpanded ? `block` : `hidden`
-          } md:block md:flex md:items-center w-full md:w-auto`}
+          className={`hidden md:block md:flex md:items-center w-full md:w-auto`}
         >
           {[
             {
@@ -101,19 +99,7 @@ function Header({ className, gradient, currentTime }) {
             {isDark == true ? <Sun /> : <Moon />}
           </button>
         </nav>
-        <button
-          onClick={() => {
-            toggleDark(!isDark);
-            localStorage.dark = !isDark;
-          }}
-          className="fixed right-0 bottom-0 mr-4 mb-4 visible md:invisible"
-        >
-          {isDark == true ? (
-            <Sun className="rounded-full px-3 py-3 bg-white w-12 h-12 text-center text-3xl text-black" />
-          ) : (
-            <Moon className="rounded-full px-3 py-3 bg-black w-12 h-12 text-center text-3xl text-white" />
-          )}
-        </button>
+        <BottomNavigation gradient={gradient} />
       </div>
     </header>
   );

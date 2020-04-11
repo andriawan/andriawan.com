@@ -49,7 +49,7 @@ function Layout({ children }) {
       </main>
 
       <footer style={gradient}>
-        <nav className="flex flex-col sm:flex-row sm:justify-between sm:max-w-4xl mx-auto p-4 md:p-8 text-sm">
+        <nav className="flex flex-col sm:flex-row sm:justify-between sm:max-w-4xl mx-auto p-4 md:p-8 text-sm mb-24 md:mb-0">
           <p className="text-white text-center p-2">
             Created by{` `}
             <a
