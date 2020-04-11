@@ -30,7 +30,7 @@ function PortoFolioList(prop) {
             style={{
               background: "linear-gradient(to right , #18adfd7d, #1fec93d1)"
             }}
-            className="mt-2 block text-center text-white font-bold py-2 px-4 rounded"
+            className="mt-2 block text-center text-xs text-white font-bold py-2 px-4 rounded"
           >
             Demo Apps
           </a>
