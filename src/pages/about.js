@@ -46,7 +46,7 @@ function AboutPage() {
             style={{
               background: "linear-gradient(to right , #18adfd7d, #1fec93d1)"
             }}
-            className="mt-6 dark:bg-black block text-center text-white font-bold py-2 px-4 rounded"
+            className="text-xs mt-6 dark:bg-black block text-center text-white font-bold py-2 px-4 rounded"
           >
             Download My Complete CV
           </a>

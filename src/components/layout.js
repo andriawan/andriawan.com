@@ -12,7 +12,7 @@ function Layout({ children }) {
     if (title !== "Home") {
       setGradient({
         ...gradient,
-        background: `linear-gradient(to right , #18adfd7d, #1fec93d1)`
+        background: `linear-gradient(to right , #18adfd, #1fec93)`
       });
     }
 
@@ -24,6 +24,13 @@ function Layout({ children }) {
     } else {
       document.documentElement.classList.remove("mode-dark");
     }
+
+    document.querySelector('.loader').classList.add('opacity-0');
+
+    setTimeout(() => {
+      document.querySelector('.loader').classList.add('h-0', 'w-0');  
+    }, 500);
+
   }, []);
   return (
     <div
@@ -36,13 +43,13 @@ function Layout({ children }) {
       <main
         className={`flex ${
           title === "Home" ? "justify-center" : "mt-12 md:mt-24"
-        } flex-col flex-1 md:justify-center max-w-4xl mx-auto px-4 py-8 md:p-8 w-full`}
+        } flex-col flex-1 md:justify-center max-w-4xl mx-auto px-4 py-8 mb-12 md:p-8 w-full`}
       >
         {children}
       </main>
 
-      <footer style={gradient}>
-        <nav className="flex flex-col sm:flex-row sm:justify-between sm:max-w-4xl mx-auto p-4 md:p-8 text-sm">
+      <footer className="md:block hidden" style={gradient}>
+        <nav className="flex flex-col sm:flex-row sm:justify-between sm:max-w-4xl mx-auto p-4 md:p-8 text-sm mb-24 md:mb-0">
           <p className="text-white text-center p-2">
             Created by{` `}
             <a

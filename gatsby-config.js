@@ -73,6 +73,7 @@ module.exports = {
         content: [
           path.join(process.cwd(), `./public/*.html`),
           path.join(process.cwd(), "src/**/!(*.d).{ts,js,jsx,tsx,md,mdx}"),
+          path.join(process.cwd(), "gatsby-ssr.js"),
           path.join(
             process.cwd(),
             "./node_modules/tailwindcss-dark-mode/prefers-dark.js"
