@@ -62,7 +62,7 @@ function Template({
   }, [isDark]);
 
   return (
-    <div className="dark:bg-black">
+    <div className="transition duration-700 ease-in-out dark:bg-black">
       <SEO
         keywords={[`andriawan`, `blog`, `posts`, `tutorial`]}
         title={frontmatter.title}
@@ -97,14 +97,14 @@ function Template({
       </header>
       <div className="blog-post-container font-serif max-w-screen-sm m-auto">
         <div className="blog-post">
-          <h1 className="text-4xl px-4 py-4 md:px-0 md:py-0 dark:text-teal-400">
+          <h1 className="transition duration-300 ease-in-out text-4xl px-4 py-4 md:px-0 md:py-0 dark:text-teal-400">
             {frontmatter.title}
           </h1>
-          <h2 className="text-xl px-4 py-4 md:px-0 md:py-0 text-gray-500 dark:text-gray-400 md:pb-4">
-            <Calendar className="date-creation inline-block dark:text-teal-400 pr-2" />
+          <h2 className="transition duration-300 ease-in-out text-xl px-4 py-4 md:px-0 md:py-0 text-gray-500 dark:text-gray-400 md:pb-4">
+            <Calendar className="transition duration-300 ease-in-out date-creation inline-block dark:text-teal-400 pr-2" />
             {frontmatter.date}
-            <Time className="inline-block dark:text-teal-400 ml-4 pr-2" />
-            <span className="text-gray-500 dark:text-gray-400 text-xl">
+            <Time className="transition duration-300 ease-in-out inline-block dark:text-teal-400 ml-4 pr-2" />
+            <span className="transition duration-300 ease-in-out text-gray-500 dark:text-gray-400 text-xl">
               {timeToRead} min reading
             </span>
           </h2>
@@ -113,7 +113,7 @@ function Template({
           ) : (
             <Img className="mb-6" fluid={frontmatter.banner.childImageSharp.fluid} />
           )}
-          <div className="blog-post-content pt-4 px-4 py-4 md:px-0 md:py-0 text-xl md:text-xl dark:text-gray-500">
+          <div className="transition duration-300 ease-in-out blog-post-content pt-4 px-4 py-4 md:px-0 md:py-0 text-xl md:text-xl dark:text-gray-500">
             <MDXRenderer>{body}</MDXRenderer>
           </div>
         </div>

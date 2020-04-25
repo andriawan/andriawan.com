@@ -35,7 +35,7 @@ function Layout({ children }) {
   return (
     <div
       id="container"
-      className={`flex flex-col font-sans min-h-screen text-gray-900
+      className={`transition duration-300 ease-in-out flex flex-col font-sans min-h-screen text-gray-900
         ${title === "Home" ? "dark:bg-transparent" : "dark:bg-gray-900"}`}
     >
       <Header className={`${title !== "Home" ? "z-10 fixed w-full" : ""}`} gradient={gradient} currentTime={currentTime} />
