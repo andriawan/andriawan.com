@@ -1,0 +1,32 @@
+---
+path: "/blog/xdebug-docker-setting"
+date: "2020-07-03"
+title: "Setting Xdebug dengan Docker & Phpstorm IDE"
+banner: ./images/xdebug.png
+---
+
+Ini merupakan tulisan pertama saya yang bersifat pembahasan teknis. Tulisan ini saya dedikasikan kepada [Kang Hendi](https://github.com/hendisantika). Beliau merupakan sponsor saya untuk pembelian lisensi Phpstorm. InsyaAllah development kedepan bisa lebih produktif dengan Phpstorm.
+
+Debugging memang hal cukup asing khususnya di PHP development. Kebanyakan pemula (tidak terlepas saya juga) menggunakan metode sederhana dalam menemukan kutu pada kode. Metode var_dump dan bahkan mungkin echo masih menjadi pilihan. Cara tradisional, mudah dan cukup populer. Nah, agar kita bisa menjadi developer yang baik dan benar, kita perlu mencari cara memudahkan hidup kita sendiri 😄. Salah satunya dengan menerapkan teknik debugging.
+
+Mengingat Xdebug memerlukan pengaturan khusus untuk bisa terintegrasi ke IDE populer zaman now, perlu adanya tutorial detail integrasi xdebug ini. Hal mendasar mengapa perlu adanya tutorial secara jelas dan lengkap ialah berdasarkan pada pengalaman pribadi saya.
+
+Mari kita berkenalan dengan Xdebug.
+
+## Apa itu Xdebug?
+
+Masih asing dengan istilah di atas? tidak masalah. Saya akan coba sederhanakan. Dari kata tersebut saya yakin Anda pasti dapat menebak. Yap, Anda benar. Xdebug berkorelasi dengan aktifitas debugging. Developer PHP veteran pastilah tidak asing dengan yang satu ini. Partner wajib PHP developer dalam berperang melawan kode bandel :D.
+
+Anda ingin definisi resmi? Oke. Mari kita berkunjung ke laman resminya.
+
+![xdebug mainwebsite screenshoot](./images/xdebug.png)
+
+> Xdebug is an extension for PHP to assist with debugging and development.
+- It contains a single step debugger to use with IDEs
+- it upgrades PHP's var_dump() function
+- it adds stack traces for Notices, Warnings, Errors and Exceptions
+- it features functionality for recording every function call and variable assignment to disk
+- it contains a profiler
+- it provides code coverage functionality for use with PHPUnit
+
+Berdasarkan kutipan di atas, kita bisa sederhanakan, xdebug merupakan penunjang development PHP. Xdebug ini hadir dalam bentuk ekstensi. Jadi defaultnya, dia tidak tersedia saat install PHP.
