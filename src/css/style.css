@@ -10,6 +10,14 @@
       background: linear-gradient(180deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.71));
       z-index: -1;
     }
+
+    .blog-post-content blockquote {
+      @apply text-base p-6 rounded mb-6 border-l-8 font-hairline border-teal-600 bg-teal-200;
+    }
+
+    .blog-post-content ul {
+      @apply text-base list-disc pl-6 pt-6;
+    }
   }
 
   .my-gradient {
@@ -19,6 +27,18 @@
 
   .blog-post-content>p {
     @apply pb-6 font-serif;
+  }
+
+  .blog-post-content a {
+    @apply text-teal-500;
+  }
+
+  .blog-post-content h2 {
+    @apply pb-6 font-bold text-2xl;
+  }
+
+  .blog-post-content blockquote {
+    @apply pb-6;
   }
 }
 
