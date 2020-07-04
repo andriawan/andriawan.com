@@ -5,17 +5,19 @@ title: "Setting Xdebug dengan Docker & Phpstorm IDE"
 banner: ./images/xdebug.png
 ---
 
-Ini merupakan tulisan pertama saya yang bersifat pembahasan teknis. Tulisan ini saya dedikasikan kepada [Kang Hendi](https://github.com/hendisantika). Beliau merupakan sponsor saya untuk pembelian lisensi Phpstorm. InsyaAllah development kedepan bisa lebih produktif dengan Phpstorm.
+Ini merupakan tulisan pertama saya yang bersifat pembahasan teknis. Tulisan ini saya dedikasikan kepada [Kang Hendi](https://github.com/hendisantika). Beliau merupakan sponsor saya. Beliau mempercayakan klaim lisensi Phpstorm kepada saya untuk digunakan dalam produktifitas Development harian. InsyaAllah development kedepan bisa lebih produktif dengan Phpstorm.
 
-Debugging memang hal cukup asing khususnya di PHP development. Kebanyakan pemula (tidak terlepas saya juga) menggunakan metode sederhana dalam menemukan kutu pada kode. Metode var_dump dan bahkan mungkin echo masih menjadi pilihan. Cara tradisional, mudah dan cukup populer. Nah, agar kita bisa menjadi developer yang baik dan benar, kita perlu mencari cara memudahkan hidup kita sendiri 😄. Salah satunya dengan menerapkan teknik debugging.
+Debugging memang hal cukup asing khususnya di ranah PHP development. Kebanyakan pemula (tidak terlepas saya juga) menggunakan metode sederhana dalam menemukan bug, error logic pada kode. Metode var_dump dan bahkan mungkin echo masih menjadi pilihan. Cara tradisional, mudah dan cukup populer. Nah, agar kita bisa menjadi developer yang baik dan benar, kita perlu mencari cara memudahkan hidup kita sendiri 😄. Salah satunya dengan menerapkan teknik debugging.
 
-Mengingat Xdebug memerlukan pengaturan khusus untuk bisa terintegrasi ke IDE populer zaman now, perlu adanya tutorial detail integrasi xdebug ini. Hal mendasar mengapa perlu adanya tutorial secara jelas dan lengkap ialah berdasarkan pada pengalaman pribadi saya.
+Mengingat Xdebug memerlukan pengaturan khusus untuk bisa terintegrasi ke IDE populer zaman now macam vscode dan PHPStorm, perlu adanya tutorial detail integrasi xdebug ini. Pada artikel ini saya akan coba jelaskan langkah-langkah integrasi Xdebug dengan kombinasi Docker dan PHPStorm IDE. Hal mendasar mengapa perlu adanya tutorial secara jelas dan lengkap ialah berdasarkan pada pengalaman pribadi saya.
 
-Mari kita berkenalan dengan Xdebug.
+Beberapa minggun ini saya berkutat dengan konfigurasi Xdebug. Saya coba mengumpulkan beberapa informasi. Istilah kerennya research😁. Beberapa tutorial memang bagus dan to do point. Namun, ada Beberapa hal yang mungkin terlihat sepele tapi jarang disebutkan secara jelas.
+
+Tak kenal maka tak tahu😆. Mari kita berkenalan dulu dengan Xdebug.
 
 ## Apa itu Xdebug?
 
-Masih asing dengan istilah di atas? tidak masalah. Saya akan coba sederhanakan. Dari kata tersebut saya yakin Anda pasti dapat menebak. Yap, Anda benar. Xdebug berkorelasi dengan aktifitas debugging. Developer PHP veteran pastilah tidak asing dengan yang satu ini. Partner wajib PHP developer dalam berperang melawan kode bandel :D.
+Masih asing dengan istilah di atas? tidak masalah. Saya akan coba sederhanakan. Dari kata tersebut saya yakin Anda pasti dapat menebak. Yap, Anda benar. Xdebug berkorelasi dengan aktifitas debugging. Developer PHP veteran pastilah tidak asing dengan yang satu ini. Partner wajib PHP developer dalam berperang melawan kode bandel😅. Kode bandel biasanya disebabkan oleh diri kita sendiri. Jadi, sebenarnya saya mengajak Anda untuk melawan diri Anda sendiri agar lebih baik dalam menulis kode.
 
 Anda ingin definisi resmi? Oke. Mari kita berkunjung ke laman resminya.
 
