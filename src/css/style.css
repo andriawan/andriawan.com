@@ -18,6 +18,11 @@
     .blog-post-content ul {
       @apply text-base list-disc pl-6 pt-6;
     }
+
+    .blog-post-content code {
+      @apply text-xs text-white bg-teal-500 p-1 rounded;
+    }
+
   }
 
   .my-gradient {
