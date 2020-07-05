@@ -96,5 +96,40 @@ Mari kita coba urai satu persatu. Ada cukup banyak parameter disana. Ada 3 menur
 
 - Penggunaan parameter lainnya anda bisa ikuti yang telah saya tulis di atas. Beberapa memang mungkin tidak diperlukan untuk case tertentu.
 
-Seperti biasa, karena kita melakukan perubahan konfigurasi. Container kita perlu dibuat ulang. Jalankan perintah `docker-compose build workspace php-fpm`
+Seperti biasa, karena kita melakukan perubahan konfigurasi. Container kita perlu dibuat ulang. Jalankan perintah `docker-compose build workspace php-fpm`. Nak sekarang kita akan konfigurasi IDE-nya yaitu PHPStorm.
+
+## Konfigurasi PHPStorm
+
+Saya merupakan pengguna baru PHPStorm. Walapun saya sudah memakai salah satu produk berbasis [JetBrains](https://www.jetbrains.com) yaitu Android Studio. PHPStorm ini sangat cocok buat mereka yang ingin dimanjakan lewat UI yang user friendly. Hampir semua konfigurasi tersedia berbasis UI tanpa perlu membuat file konfigurasi sendiri. Untuk mengakses semua konfigurasi pilih menu preferences. Jika berbasis macOS anda cukup menekan tombol `⌘ + ,`.
+
+![phpstorm-pref](./images/phpstorm-pref.png)
+
+ Banyak konfigurasi yang bisa Anda jelajahi. Untuk kali ini, pilih saja `Language & Frameworka > PHP > Debug`
+
+![phpstorm-pref](./images/php-debug-pref.png)
+
+Pada bagian Xdebug, silahkan sesuaikan Debug Port dengan konfigurasi awal yang kita telah tentukan. Pada screenshoot, saya isi 9005. Selanjutnya pilih bagian `Language & Frameworka > PHP > Servers`. Ini bagian yang paling penting menurut saya. Di sini, kita akan melakukan konfigurasi agar PHPStorm dapat terkoneksi ke server Xdebug. Ingat, Walapun kita install di localhost tanpa menggunakan docker, konsep client server masih berlaku. Yang akan membedakan nantinya pada path mappingnya.
+
+Ada beberap parameter yang harus kita konfigurasi. Name, Host, Port dan Path mappingnya.
+
+![phpstorm-pref](./images/phpstorm-servers-pref.png)
+
+Name untuk based Laradock development menggunakan nama `laradock` sesuai konfigurasi `.env`. Anda dapat menemukan konfigurasi ini pada line 62. Jika anda merubah konfigurasi ini, maka Name pada konfigurasi di atas harus diubah juga.
+
+![phpstorm-pref](./images/env-name.png)
+
+Untuk Host silahkan isi `localhost` dan port sama dengan konfigurasi awal `9005`. Nah, karena kita menggunakan Laradock yang artinya kita meremote file PHP, kita perlu centang path mapping. Langkah ini yang menurut saya penting, karena saya waktu itu stuck di langkah ini 😂. Path mapping ini penting, agar xdebug bisa mengidentifikasi breakpoint dari file-file PHP kita. Saya sempat dibuat pusing, karena issue ini. Semua konfigurasi sudah berjalan, namun breakpoint tidak dapat dibaca xdebug. Sesuaikan saja path local dengan path pada container php-fpm kita. Kalau tidak yakin path remotenya, kita bisa masuk ke container `php-fpm` dengan menjalankan perintah `docker-compose exec php-fpm bash`. Biasanya path mapping file-file php berada pada folder `var/www/`
+
+![phpstorm-pref](./images/path-mapping.png)
+
+Konfigurasi selesai, silahkan anda coba membuat breakpoint pada file php Anda. Silahkan klik ke sebelah kanan line number. Akan muncul bulatan merah. Nah, itu yang dinamakan breakpoint.
+
+![phpstorm-pref](./images/breakpoint.png)
+
+Ketika kita mereload browser dalam contoh saya `index.php` maka browser akan terus reload. Kenapa? karena file kita berhenti dieksekusi. Eksekusi akan berhenti pada titik merah alias breakpoint.
+
+![phpstorm-pref](./images/breakpoint-stop.png)
+
+Nah, dari situ anda akan tau kondisi variable-variable yang ada. Jika Anda perhatikan pada panel bawah, ada beberapa informasi variable Seperti `$_SERVER`,`$_COOKIE`
+
 
