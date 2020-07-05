@@ -2,8 +2,6 @@
 @tailwind base;
 @tailwind components;
 /* purgecss end ignore */
-@tailwind utilities;
-
 @responsive {
   @variants dark {
     .my-gradient {
@@ -17,9 +15,36 @@
     z-index: -1;
   }
 
-  .blog-post-content>p {
+  /*! purgecss start ignore */
+
+  .blog-post-content > p {
     @apply pb-6 font-serif;
   }
+
+  .blog-post-content a {
+    @apply text-teal-500 border-b-2 border-teal-500 border-dotted;
+  }
+
+  .blog-post-content h2 {
+    @apply mb-6 border-b-2 border-teal-600 inline-block font-bold text-2xl;
+  }
+
+  .blog-post-content blockquote {
+    @apply text-base p-6 rounded mb-6 border-l-8 font-hairline border-teal-600 bg-teal-200;
+  }
+
+  .blog-post-content blockquote ul {
+    @apply text-sm break-words list-disc pl-6 pt-6 pb-6;
+  }
+
+  .blog-post-content ul {
+    @apply list-disc pl-6 pb-6 pt-6;
+  }
+
+  .blog-post-content code {
+    @apply text-xs text-white bg-teal-500 p-1 rounded;
+  }
+  /*! purgecss end ignore */
 }
 
 .active-menu-bottom{
@@ -137,3 +162,5 @@
             opacity: 1;
   }
 }
+
+@tailwind utilities;
