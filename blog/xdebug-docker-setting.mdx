@@ -86,3 +86,15 @@ Selanjutnya, kita konfigurasi file `xdebug.ini` agar container dapat menerima pe
 - xdebug.remote_host=docker.for.mac.localhost
 - xdebug.remote_handler="dbgp"
 
+Mari kita coba urai satu persatu. Ada cukup banyak parameter disana. Ada 3 menurut saya yang paling penting yaitu `remote_enable`, `remote_port` dan `remote_host`. 
+
+- `remote_enable` mengaktifkan xdebug dalam mode remote. Karena kita menerapkan development berbasis docker Laradock, container service PHP menggunakan php-fpm dalam bentuk container tersendiri. Development kita berada di lokal, jadi kita butuh mengaktifkan remote ke container tersebut.
+
+- `remote_port` beberapa artikel menyarankan port berbeda dengan port yang digunakan php-fpm yaitu 9000 secara defaultnya. Anda bisa mencoba port yang lain. Untuk tutorial ini saya memakai port 9005
+
+- `remote_host` disini sebenarnya merupakan alamat host lokal kita, untuk case macOS docker memakai nama khusus `docker.for.mac.localhost`. Untuk kasus lain, penggunaan localhost ataupun 127.0.0.1 dapat digunakan.
+
+- Penggunaan parameter lainnya anda bisa ikuti yang telah saya tulis di atas. Beberapa memang mungkin tidak diperlukan untuk case tertentu.
+
+Seperti biasa, karena kita melakukan perubahan konfigurasi. Container kita perlu dibuat ulang. Jalankan perintah `docker-compose build workspace php-fpm`
+
