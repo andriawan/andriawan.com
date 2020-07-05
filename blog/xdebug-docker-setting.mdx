@@ -2,14 +2,14 @@
 path: "/blog/xdebug-docker-setting"
 date: "2020-07-03"
 title: "Setting Xdebug dengan Laradock Docker & PHPstorm IDE"
-banner: ./images/xdebug.png
+banner: ./images/banner-xdebug.png
 ---
 
 Ini merupakan tulisan pertama saya yang bersifat pembahasan teknis. Tulisan ini saya dedikasikan kepada [Kang Hendi](https://github.com/hendisantika). Beliau merupakan sponsor saya. Beliau mempercayakan klaim lisensi PHPstorm kepada saya untuk digunakan dalam produktifitas Development harian. InsyaAllah development kedepan bisa lebih produktif dengan PHPstorm.
 
-Debugging memang hal cukup asing khususnya di ranah PHP development. Kebanyakan pemula (tidak terlepas saya juga) menggunakan metode sederhana dalam menemukan bug, error logic pada kode. Metode `var_dump()` dan bahkan mungkin `echo` masih menjadi pilihan. Cara tradisional, mudah dan cukup populer. Nah, agar kita bisa menjadi developer yang baik dan benar, kita perlu mencari cara memudahkan hidup kita sendiri 😄. Salah satunya dengan menerapkan teknik debugging.
+Debugging memang hal cukup asing khususnya di ranah PHP development. Kebanyakan pemula (tidak terlepas saya juga) sering menggunakan metode sederhana dalam menganlisa kode, menemukan bug dan error logic pada kode. Metode `var_dump()` dan bahkan mungkin `echo` masih menjadi pilihan. Cara tradisional, namun mudah dan cukup populer. Nah, agar kita bisa menjadi developer yang baik dan benar, kita perlu mencari cara memudahkan hidup kita sendiri😄. Salah satunya dengan menerapkan teknik debugging.
 
-Mengingat Xdebug memerlukan pengaturan khusus untuk bisa terintegrasi ke IDE populer zaman now macam vscode dan PHPStorm, perlu adanya tutorial detail integrasi xdebug ini. Pada artikel ini saya akan coba jelaskan langkah-langkah integrasi Xdebug dengan kombinasi Docker dan PHPStorm IDE. Hal mendasar mengapa perlu adanya tutorial secara jelas dan lengkap ialah berdasarkan pada pengalaman pribadi saya.
+Mengingat Xdebug memerlukan pengaturan khusus untuk bisa terintegrasi ke IDE populer zaman now macam Vscode dan PHPStorm, perlu adanya tutorial detail integrasi Xdebug ini. Pada artikel ini, saya akan coba jelaskan langkah-langkah integrasi Xdebug dengan kombinasi Docker dan PHPStorm IDE. Hal mendasar mengapa perlu adanya tutorial secara jelas dan lengkap ialah berdasarkan pada pengalaman pribadi saya.
 
 Beberapa minggun ini saya berkutat dengan konfigurasi Xdebug. Saya coba mengumpulkan beberapa informasi. Istilah kerennya research😁. Beberapa tutorial memang bagus dan to do point. Namun, ada Beberapa hal yang mungkin terlihat sepele tapi jarang disebutkan secara jelas.
 
@@ -122,7 +122,12 @@ Untuk Host silahkan isi `localhost` dan port sama dengan konfigurasi awal `9005`
 
 ![phpstorm-pref](./images/path-mapping.png)
 
-Konfigurasi selesai, silahkan anda coba membuat breakpoint pada file php Anda. Silahkan klik ke sebelah kanan line number. Akan muncul bulatan merah. Nah, itu yang dinamakan breakpoint.
+Konfigurasi selesai, Untuk beralih ke mode debug pada PHPStorm IDE,  Anda bisa aktifkan pada tombol icon seperti gambar di bawah. Posisinya ada di pojok kanan atas. Menagapa tidak menggunakan debug biasa? karena jika kita memakai mode debug biasa (tombol bericon kutu berwarna hijau) maka kita akan berada pada mode debug per File dan dieksekusi dengan PHP CLI. Pembahasan Debug CLI mode tidak akan dijelaskan detail di sini. Mungkin pada next artikel ya 😁. Kita berfokus pada keseluruhan debugging Aplikasi.
+
+![phpstorm-pref](./images/start-listening.png)
+
+
+Silahkan anda coba membuat breakpoint pada file php Anda. Silahkan klik ke sebelah kanan line number. Akan muncul bulatan merah. Nah, itu yang dinamakan breakpoint.
 
 ![phpstorm-pref](./images/breakpoint.png)
 
@@ -130,6 +135,10 @@ Ketika kita mereload browser dalam contoh saya `index.php` maka browser akan ter
 
 ![phpstorm-pref](./images/breakpoint-stop.png)
 
-Nah, dari situ anda akan tau kondisi variable-variable yang ada. Jika Anda perhatikan pada panel bawah, ada beberapa informasi variable Seperti `$_SERVER`,`$_COOKIE`
+Nah, dari situ anda akan tau kondisi variable-variable yang ada. Jika Anda perhatikan pada panel bawah, ada beberapa informasi variable Seperti `$_SERVER`,`$_COOKIE`. Dengan informasi yang cukup detail seperti ini, pengguna debug var_dump atau manual echo menurut saya sudah ter-cover di sini. Pada tingkat advanced, bahkan anda bisa menganlisa alur eksekusi kode Framework besar macam Laravel.
+
+## Sum up!
+
+Silahkan coba Anda terapkan teknik debugging ini Mungkin di awal-awal, teknik ini terlihat menyusahkan diri sendiri atau buang-buang waktu. Percayalah Bro😎, semakin komplek Aplikasi yang Anda bangun, debugging manual akan benar-benar merepotkan. Saya sudah membuktikannya in the real world case. Ya, kalau memang Anda butuh sesuatu yang simpel untuk Aplikasi simpel, teknik debugging ini mungkin saja akan menyita banyak waktu Anda. So, it's all yours.
 
 
