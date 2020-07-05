@@ -10,23 +10,6 @@
       background: linear-gradient(180deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.71));
       z-index: -1;
     }
-
-    .blog-post-content blockquote {
-      @apply text-base p-6 rounded mb-6 border-l-8 font-hairline border-teal-600 bg-teal-200;
-    }
-
-    .blog-post-content blockquote ul {
-      @apply text-base list-disc pl-6 pt-6;
-    }
-
-    .blog-post-content ul {
-      @apply list-disc pl-6 pb-6 pt-6;
-    }
-
-    .blog-post-content code {
-      @apply text-xs text-white bg-teal-500 p-1 rounded;
-    }
-
   }
 
   .my-gradient {
@@ -34,7 +17,7 @@
     z-index: -1;
   }
 
-  .blog-post-content>p {
+  .blog-post-content > p {
     @apply pb-6 font-serif;
   }
 
@@ -46,8 +29,26 @@
     @apply mb-6 border-b-2 border-teal-600 inline-block font-bold text-2xl;
   }
 
-  .blog-post-content blockquote ul{
-    @apply pb-6;
+  .blog-post-content blockquote {
+    @apply text-base p-6 rounded mb-6 border-l-8 font-hairline border-teal-600 bg-teal-200;
+  }
+
+  .blog-post-content blockquote ul {
+    @apply text-sm break-words list-disc pl-6 pt-6 pb-6;
+  }
+
+  .blog-post-content ul {
+    @apply list-disc pl-6 pb-6 pt-6;
+  }
+
+  .blog-post-content code {
+    @apply text-xs text-white bg-teal-500 p-1 rounded;
+  }
+}
+
+@screen md {
+  .blog-post-content blockquote ul {
+    @apply text-base;
   }
 }
 
