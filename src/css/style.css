@@ -2,8 +2,6 @@
 @tailwind base;
 @tailwind components;
 /* purgecss end ignore */
-@tailwind utilities;
-
 @responsive {
   @variants dark {
     .my-gradient {
@@ -16,6 +14,8 @@
     background: linear-gradient(to right, #18adfd7d, #1fec93d1);
     z-index: -1;
   }
+
+  /*! purgecss start ignore */
 
   .blog-post-content > p {
     @apply pb-6 font-serif;
@@ -44,12 +44,7 @@
   .blog-post-content code {
     @apply text-xs text-white bg-teal-500 p-1 rounded;
   }
-}
-
-@screen md {
-  .blog-post-content blockquote ul {
-    @apply text-base;
-  }
+  /*! purgecss end ignore */
 }
 
 .active-menu-bottom{
@@ -167,3 +162,5 @@
             opacity: 1;
   }
 }
+
+@tailwind utilities;
