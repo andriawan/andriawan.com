@@ -42,7 +42,7 @@ function Header({ className, gradient, currentTime }) {
         </Link>
 
         <button
-          className="block md:hidden flex items-center px-3 py-2 rounded text-white"
+          className="focus:outline-none block md:hidden flex items-center px-3 py-2 rounded text-white"
           onClick={() => {
             toggleDark(!isDark);
             localStorage.dark = !isDark;
@@ -90,7 +90,7 @@ function Header({ className, gradient, currentTime }) {
             </Link>
           ))}
           <button
-            className="mt-4 md:mt-0 md:ml-6 invisible md:visible no-underline"
+            className="focus:outline-none mt-4 md:mt-0 md:ml-6 invisible md:visible no-underline"
             onClick={() => {
               toggleDark(!isDark);
               localStorage.dark = !isDark;

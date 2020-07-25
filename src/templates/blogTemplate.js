@@ -81,7 +81,7 @@ function Template({
           <Link className="flex items-center no-underline text-teal-400" to="/">
             <Home className="text-teal-400 text-xl" />
           </Link>
-          <button
+          <button className="focus:outline-none" 
             onClick={() => {
               toggleDark(!isDark);
               localStorage.dark = !isDark;
@@ -198,7 +198,7 @@ function Template({
           <Link className="flex items-center no-underline text-teal-400" to="/">
             <Home className="text-teal-400 text-xl" />
           </Link>
-          <button
+          <button className="focus:outline-none"
             onClick={() => {
               toggleDark(!isDark);
               localStorage.dark = !isDark;
