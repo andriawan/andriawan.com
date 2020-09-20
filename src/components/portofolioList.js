@@ -40,7 +40,7 @@ function PortoFolioList(prop) {
   );
 }
 
-PortoFolioList.prototype = {
+PortoFolioList.propTypes = {
   data: PropTypes.object
 };
 
