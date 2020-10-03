@@ -1,6 +1,7 @@
 /* purgecss start ignore */
 @tailwind base;
 @tailwind components;
+
 /* purgecss end ignore */
 @responsive {
   @variants dark {
@@ -17,7 +18,7 @@
 
   /*! purgecss start ignore */
 
-  .blog-post-content > p {
+  .blog-post-content>p {
     @apply pb-6 font-serif;
   }
 
@@ -41,13 +42,23 @@
     @apply list-disc pl-6 pb-6 pt-6;
   }
 
+  .blog-post-content ol {
+    list-style-type: decimal;
+    @apply pl-6 pb-6 pt-6;
+  }
+
+  .blog-post-content ol li {
+    @apply pl-2;
+  }
+
   .blog-post-content code {
     @apply text-xs text-white bg-teal-500 p-1 rounded;
   }
+
   /*! purgecss end ignore */
 }
 
-.active-menu-bottom{
+.active-menu-bottom {
   background: #ffffff59;
 }
 
@@ -78,28 +89,31 @@
  * animation scale-up-center
  * ----------------------------------------
  */
- @-webkit-keyframes scale-up-center {
+@-webkit-keyframes scale-up-center {
   0% {
     -webkit-transform: scale(0.6);
-            transform: scale(0.6);
-            opacity: 0;
+    transform: scale(0.6);
+    opacity: 0;
   }
+
   100% {
     -webkit-transform: scale(1);
-            transform: scale(1);
-            opacity: 1;
+    transform: scale(1);
+    opacity: 1;
   }
 }
+
 @keyframes scale-up-center {
   0% {
     -webkit-transform: scale(0.6);
-            transform: scale(0.6);
-            opacity: 0;
+    transform: scale(0.6);
+    opacity: 0;
   }
+
   100% {
     -webkit-transform: scale(1);
-            transform: scale(1);
-            opacity: 1;
+    transform: scale(1);
+    opacity: 1;
   }
 }
 
@@ -108,28 +122,31 @@
  * animation scale-down
  * ----------------------------------------
  */
- @-webkit-keyframes scale-down-anim {
+@-webkit-keyframes scale-down-anim {
   0% {
     -webkit-transform: scale(1);
-            transform: scale(1);
-            opacity: 1;
+    transform: scale(1);
+    opacity: 1;
   }
+
   100% {
     -webkit-transform: scale(0);
-            transform: scale(0);
-            opacity: 0;
+    transform: scale(0);
+    opacity: 0;
   }
 }
+
 @keyframes scale-down-anim {
   0% {
     -webkit-transform: scale(1);
-            transform: scale(1);
-            opacity: 1;
+    transform: scale(1);
+    opacity: 1;
   }
+
   100% {
     -webkit-transform: scale(0);
-            transform: scale(0);
-            opacity: 0;
+    transform: scale(0);
+    opacity: 0;
   }
 }
 
@@ -138,28 +155,31 @@
  * animation scale-up
  * ----------------------------------------
  */
- @-webkit-keyframes scale-up-anim {
+@-webkit-keyframes scale-up-anim {
   0% {
     -webkit-transform: scale(0);
-            transform: scale(0);
-            opacity: 0;
+    transform: scale(0);
+    opacity: 0;
   }
+
   100% {
     -webkit-transform: scale(1);
-            transform: scale(1);
-            opacity: 1;
+    transform: scale(1);
+    opacity: 1;
   }
 }
+
 @keyframes scale-up-anim {
   0% {
     -webkit-transform: scale(0);
-            transform: scale(0);
-            opacity: 0;
+    transform: scale(0);
+    opacity: 0;
   }
+
   100% {
     -webkit-transform: scale(1);
-            transform: scale(1);
-            opacity: 1;
+    transform: scale(1);
+    opacity: 1;
   }
 }
 
