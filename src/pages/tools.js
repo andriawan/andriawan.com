@@ -63,8 +63,8 @@ function Tools() {
         image="https://res.cloudinary.com/andriawan/image/upload/v1585108772/images/home.png"
       />
       <section>
-        <div className="flex text-white mb-6 rounded-lg border p-4 border-white">
-          <div className="flex-1">
+        <div className="md:flex text-white mb-6 md:mt-0 mt-6 rounded-lg border p-4 border-white">
+          <div className="w-full md:flex-1">
             <input
               type="radio"
               onChange={() =>
@@ -75,9 +75,11 @@ function Tools() {
               name="mode"
               value={KEBAB_CASE}
             />
-            <span className="ml-2">Kebab Case</span>
+            <span className="ml-2 md:text-base md:pb-0 pb-4 text-2xl">
+              Kebab Case
+            </span>
           </div>
-          <div className="flex-1">
+          <div className="w-full md:flex-1">
             <input
               type="radio"
               onChange={() =>
@@ -88,9 +90,11 @@ function Tools() {
               name="mode"
               value={CAMEL_CASE}
             />
-            <span className="ml-2">Camel Case</span>
+            <span className="ml-2 md:text-base md:pb-0 pb-4 text-2xl">
+              Camel Case
+            </span>
           </div>
-          <div className="flex-1">
+          <div className="w-full md:flex-1">
             <input
               type="radio"
               onChange={() =>
@@ -101,9 +105,11 @@ function Tools() {
               name="mode"
               value={UPPER_CASE}
             />
-            <span className="ml-2">Upper Case</span>
+            <span className="ml-2 md:text-base md:pb-0 pb-4 text-2xl">
+              Upper Case
+            </span>
           </div>
-          <div className="flex-1">
+          <div className="w-full md:flex-1">
             <input
               type="radio"
               onChange={() =>
@@ -114,29 +120,37 @@ function Tools() {
               name="mode"
               value={LOWER_CASE}
             />
-            <span className="ml-2">Lower Case</span>
+            <span className="ml-2 md:text-base md:pb-0 pb-4 text-2xl">
+              Lower Case
+            </span>
           </div>
         </div>
         <div className="flex flex-wrap" style={{ boxSizing: "border-box" }}>
-          <div className="w-1/2">
-            <label className="text-white block mb-2" htmlFor="input">
+          <div className="w-full md:w-1/2">
+            <label
+              className="text-white block mb-2 text-2xl md:text-base"
+              htmlFor="input"
+            >
               Input
             </label>
             <textarea
-              className="mr-2 w-full p-2"
+              className="md:mr-2 w-full p-2 text-3xl md:text-base"
               name="inputData"
               onChange={(e) => manipulateData(e.target)}
               cols="30"
               rows="10"
             ></textarea>
           </div>
-          <div className="w-1/2">
-            <label className="text-white block mb-2" htmlFor="input">
+          <div className="w-full md:w-1/2">
+            <label
+              className="text-white block mb-2 text-2xl md:text-base"
+              htmlFor="input"
+            >
               Output
             </label>
             <textarea
               name="output"
-              className="ml-2 w-full p-2"
+              className="md:ml-2 w-full p-2 text-3xl md:text-base"
               value={output}
               cols="30"
               rows="10"
