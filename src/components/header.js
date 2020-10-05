@@ -61,25 +61,25 @@ function Header({ className, gradient, currentTime }) {
           {[
             {
               route: `/`,
-              title: `Home`
+              title: `Home`,
             },
             {
               route: `/about`,
-              title: `About`
+              title: `About`,
             },
             {
               route: `/portofolio`,
-              title: `Portofolio`
+              title: `Portofolio`,
             },
             {
               route: `/blog`,
-              title: `Blog`
+              title: `Blog`,
             },
             {
-              route: `/covid19`,
-              title: `Covid19`
-            }
-          ].map(link => (
+              route: `/tools/string-manipulation`,
+              title: `Tools`,
+            },
+          ].map((link) => (
             <Link
               className="block md:inline-block mt-4 md:mt-0 md:ml-6 no-underline text-white"
               key={link.title}
@@ -108,7 +108,7 @@ function Header({ className, gradient, currentTime }) {
 Header.propTypes = {
   gradient: PropTypes.object,
   currentTime: PropTypes.number,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 export default Header;
