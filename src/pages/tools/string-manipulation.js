@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Layout from "../../components/layout";
+import SEO from "../../components/seo";
 
-function Tools() {
+function StringManipulation() {
   const KEBAB_CASE = "Kebab Case";
   const CAMEL_CASE = "Camel Case";
   const UPPER_CASE = "Upper Case";
@@ -63,7 +63,7 @@ function Tools() {
         image="https://res.cloudinary.com/andriawan/image/upload/v1585108772/images/home.png"
       />
       <section>
-        <div className="md:flex text-white mb-6 md:mt-0 mt-6 rounded-lg border p-4 border-white">
+        <div className="md:flex dark:text-white mb-6 md:mt-0 mt-6 rounded-lg border p-4 dark:border-white">
           <div className="w-full md:flex-1">
             <input
               type="radio"
@@ -128,13 +128,13 @@ function Tools() {
         <div className="flex flex-wrap" style={{ boxSizing: "border-box" }}>
           <div className="w-full md:w-1/2">
             <label
-              className="text-white block mb-2 text-2xl md:text-base"
+              className="dark:text-white block mb-2 text-2xl md:text-base"
               htmlFor="input"
             >
               Input
             </label>
             <textarea
-              className="md:mr-2 w-full p-2 text-3xl md:text-base"
+              className="md:mr-2 w-full p-2 border border-black text-3xl md:text-base"
               name="inputData"
               onChange={(e) => manipulateData(e.target)}
               cols="30"
@@ -143,15 +143,16 @@ function Tools() {
           </div>
           <div className="w-full md:w-1/2">
             <label
-              className="text-white block mb-2 text-2xl md:text-base"
+              className="dark:text-white block mb-2 text-2xl md:text-base"
               htmlFor="input"
             >
               Output
             </label>
             <textarea
               name="output"
-              className="md:ml-2 w-full p-2 text-3xl md:text-base"
+              className="md:ml-2 w-full p-2 border border-black text-3xl md:text-base"
               value={output}
+              onClick={(e) => e.target.select()}
               cols="30"
               rows="10"
             ></textarea>
@@ -162,4 +163,4 @@ function Tools() {
   );
 }
 
-export default Tools;
+export default StringManipulation;
