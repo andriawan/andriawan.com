@@ -8,11 +8,13 @@ import { ReactComponent as Blog } from "../svg/blog.svg";
 import { ReactComponent as Chart } from "../svg/chart.svg";
 
 function BottomNavigation({ gradient }) {
-    
-    if(gradient.background === undefined) gradient = { background : "#ffffff38"};
+  if (gradient.background === undefined) gradient = { background: "#ffffff38" };
 
   return (
-    <div className="fixed inset-x-0 bottom-0 h-16 bg-gray-700 md:hidden" style={gradient}>
+    <div
+      className="fixed inset-x-0 bottom-0 h-16 bg-gray-700 md:hidden"
+      style={gradient}
+    >
       <div className="flex flex-no-wrap items-center h-full justify-around mx-auto">
         <div className="h-full w-full flex">
           <Link
@@ -54,7 +56,7 @@ function BottomNavigation({ gradient }) {
         <div className="h-full w-full flex">
           <Link
             className="w-full flex items-center no-underline text-white"
-            to="/covid19"
+            to="/tools/string-manipulation"
             activeClassName="active-menu-bottom"
           >
             <Chart className="w-full text-white text-xl" />
@@ -66,7 +68,7 @@ function BottomNavigation({ gradient }) {
 }
 
 BottomNavigation.propTypes = {
-  gradient: PropTypes.string
+  gradient: PropTypes.string,
 };
 
 export default BottomNavigation;
