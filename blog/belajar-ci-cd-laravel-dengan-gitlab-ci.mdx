@@ -1,0 +1,41 @@
+---
+path: "/blog/belajar-ci-cd-laravel-heroku-dengan-gitlab-ci"
+date: "2020-12-19 08:48:00"
+title: "Belajar CI/CD Laravel, Heroku dengan Gitlab CI"
+banner: ./images/zain.png
+---
+import CodeBlock from "../src/components/CodeBlock";
+
+Setelah sekian lama vakum menulis, saya sempatkan waktu untuk menulis panduan sederhana namun mungkin bermanfaat. Tulisan ini diharapkan dapat membantu teman-teman yang baru memulai menerapkan pengembangan modern terstruktur dan rapi.
+
+## Apa itu CI/CD?
+
+CI/CD merupakan kepanjangan dari Continuous Integration/Continuous Deployment. Sederhananya kalau kita artikan ialah Integrasi berkelanjutan dan Pengiriman berkelanjutan. Pengiriman di sini berkaitan erat dengan melakukan update ataupun improvisasi dari aplikasi. Jadi apa sih sebenarnya ini?
+
+Jadi mungkin teman-teman yang sudah akrab dengan dunia hosting web atau aplikasi sering melakukan deployment (pengiriman) aplikasi. Untuk bisa diakses banyak orang web/aplikasi kita butuh server hosting (Mesin yang bisa diakses publik). Maka dari itu, web/aplikasi yang sudah dikembangkan secara individu atau tim harus dikirim ke server untuk bisa akses secara luas. Tentunya sebelum itu, kita harus pastikan web/aplikasi kita harus dilakukan pengecekan menyeluruh untuk menghindari terjadinya error pada saat digunakan.
+
+Proses ini mungkin sudah pernah juga teman-teman lakukan. Sederhananya, untuk bisa diakses public web/aplikasi harus diuji lalu dikirim ke server. Untuk mengirim web/aplikasi kita butuh mentransfer kode sumber dari mesin lokal kita ke server. Ada beberapa mekanisme dalam proses pengiriman ini. Yang paling umum ialah menggunakan FTP (File Transfer Protocol). Ada beberapa proses yang perlu dilakukan dari mulai pengembangan sampai dengan aplikasi kita siap diakses banyak orang. Namun pointnya ialah
+
+<CodeBlock>
+    <code className={`language-bash`}>
+        Uji Aplikasi lalu Kirim
+    </code>
+</CodeBlock>
+
+Nah CI/CD ini serangkaian proses yang mengakomodir semua itu dengan seminimal mungkin intervensi. Bahasa kerennya automation.
+
+## Laravel
+
+Jadi kita akan coba belajar CI/CD dengan membuat aplikasi sederhana menggunakan Laravel. Apa itu laravel? Singkatnya Laravel merupakan sebuah PHP Framework populer dengan standart yang bagus dan hampir digunakan banyak pengembang dalam membangun aplikasi web.
+
+## Heroku
+
+Merupakan Platform as a Service (Paas) dimana kita dapat melakukan deployment aplikasi kita ke sana.
+
+## Gitlab CI
+
+Merupakan sebuah layanan yang disediakan gitlab untuk mendukung proses CI/CD dari aplikasi kita.
+
+## Mari kita ngoding
+
+Nah saatnya kita implementasi langsung penggunaan CI/CD. Pastikan kalian sudah memiliki akun [Gitlab](https://gitlab.com/users/sign_up) dan [Heroku](https://signup.heroku.com). Layanan ini bisa kalian dapatkan secara gratis tanpa mengeluarkan biaya. Namun untuk penggunaan yang lebih serius, gitlab dan heroku menyediakan layanan berbayar. Pastikan juga kalian sudah memahami dasar-dasar git karena kita akan sering menggunakan git untuk mengatur kode sumber aplikasi kita. Kali ini kita akan gunakan versi gratisnya saja untuk uji coba.
