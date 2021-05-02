@@ -38,7 +38,11 @@ function Layout({ children }) {
       className={`transition duration-300 ease-in-out flex flex-col font-sans min-h-screen text-gray-900
         ${title === "Home" ? "dark:bg-transparent" : "dark:bg-gray-900"}`}
     >
-      <Header className={`${title !== "Home" ? "z-10 fixed w-full" : ""}`} gradient={gradient} currentTime={currentTime} />
+      <Header
+        className={`${title !== "Home" ? "z-10 fixed w-full" : ""}`}
+        gradient={gradient}
+        currentTime={currentTime}
+      />
 
       <main
         className={`flex ${
@@ -93,6 +97,18 @@ function Layout({ children }) {
                   <SimpleLineIcon
                     color="white"
                     name="social-facebook"
+                  ></SimpleLineIcon>
+                </a>
+              </div>
+
+              <div className="p-3">
+                <a
+                  className="font-bold no-underline text-white"
+                  href="https://t.me/irwan_andriawan"
+                >
+                  <SimpleLineIcon
+                    color="white"
+                    name="paper-plane"
                   ></SimpleLineIcon>
                 </a>
               </div>
