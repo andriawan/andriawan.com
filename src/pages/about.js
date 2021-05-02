@@ -17,14 +17,13 @@ function AboutPage() {
         <div className="dark:text-gray-500 mb-6 md:w-2/3 md:mr-8">
           <p className="pl-4 font-serif">
             Nama saya adalah Muhammad Irwan Andriawan. Seorang Pengembang
-            software sejak 2015.
+            software sejak tahun 2015.
           </p>
           <br></br>
           <p className="pl-4 font-serif">
-            Lahir di Jember, Jawa Timur. Saat ini sedang berkarir di Jakarta
-            sebagai seorang Web Developer Sebuah Perusahaan Software House.
-            Fokus pengembangan saya mencakup Mobile Programming dan Web
-            Programming.
+            Lahir di Jember, Jawa Timur. Saat ini sedang berkarir di Bandung
+            sebagai seorang Frontend Developer di sebuah startup.
+            Sangat sering berinteraksi dengan Javascript.
           </p>
           <br></br>
           <p className="pl-4 font-serif">
