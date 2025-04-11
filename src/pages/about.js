@@ -85,21 +85,15 @@ function AboutPage() {
         </figure>
         <div className="pt-6 px-4 md:px-0 font-serif dark:text-gray-500 mb-6 md:w-2/3 md:mr-8">
           <p>
-            Nama saya adalah Muhammad Irwan Andriawan. Seorang Pengembang
-            software sejak tahun 2015.
+            My name is Muhammad Irwan Andriawan, a software developer since 2015.
           </p>
           <br></br>
           <p>
-            Lahir di Jember, Jawa Timur. Saat ini sedang berkarir di Bandung
-            sebagai seorang Frontend Developer di sebuah startup. Sangat sering
-            berinteraksi dengan Javascript.
+            I was born in Jember, East Java, and am currently based in Bandung, working as a Frontend Developer at a startup. I frequently work with JavaScript in my daily tasks.
           </p>
           <br></br>
           <p>
-            Sangat suka memperbarui skill dengan memepelajari hal-hal baru dan
-            kekinian. Aktif Ngeblog dan share kegiatan programming. Sangat
-            terbuka untuk sharing dan kerja sama. Silahkan liat-liat portfolio
-            saya.
+            I have a strong passion for continuously improving my skills by learning new and up-to-date technologies. I actively blog and share my programming activities. I am always open to collaboration and knowledge sharing. Feel free to take a look at my portfolio.
           </p>
         </div>
 
