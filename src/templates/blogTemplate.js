@@ -10,7 +10,7 @@ import { ReactComponent as Time } from "../svg/time.svg";
 import { ReactComponent as LeftArrow } from "../svg/left-arrow.svg";
 import { ReactComponent as Home } from "../svg/home.svg";
 import { ReactComponent as UpArrow } from "../svg/arrow-up.svg";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import isInViewport from "../util/viewport";
 
@@ -18,20 +18,24 @@ function Template({
   data, // this prop will be injected by the GraphQL query below.
 }) {
   const { mdx } = data; // data.mdx holds your post data
-  const { frontmatter, timeToRead, excerpt, body } = mdx;
+  const { frontmatter, excerpt, body } = mdx;
   const [isDark, toggleDark] = useState(null);
   const currentTime = new Date().getHours();
 
   const handleButtonBackToTop = useCallback(() => {
-      if(isInViewport(document.querySelector('.date-creation'))){
-        document.querySelector('.up-arrow').classList.add('scale-down-animation');
-        document.querySelector('.up-arrow').classList.remove('scale-up-animation');
-      }else{
-        document.querySelector('.up-arrow').classList.add('h-auto', 'w-auto');
-        document.querySelector('.up-arrow').classList.add('scale-up-animation');
-        document.querySelector('.up-arrow').classList.remove('scale-down-animation');
-      }
-  },[isDark]);
+    if (isInViewport(document.querySelector(".date-creation"))) {
+      document.querySelector(".up-arrow").classList.add("scale-down-animation");
+      document
+        .querySelector(".up-arrow")
+        .classList.remove("scale-up-animation");
+    } else {
+      document.querySelector(".up-arrow").classList.add("h-auto", "w-auto");
+      document.querySelector(".up-arrow").classList.add("scale-up-animation");
+      document
+        .querySelector(".up-arrow")
+        .classList.remove("scale-down-animation");
+    }
+  }, [isDark]);
 
   useEffect(() => {
     if (currentTime > 17 || currentTime < 6) localStorage.dark = true;
@@ -47,18 +51,17 @@ function Template({
       document.documentElement.classList.remove("mode-dark");
     }
 
-    document.querySelector('.loader').classList.add('opacity-0');
+    document.querySelector(".loader").classList.add("opacity-0");
 
     setTimeout(() => {
-      document.querySelector('.loader').classList.add('h-0', 'w-0');  
+      document.querySelector(".loader").classList.add("h-0", "w-0");
     }, 500);
 
-    document.addEventListener('scroll', handleButtonBackToTop)
+    document.addEventListener("scroll", handleButtonBackToTop);
 
     return () => {
-      document.removeEventListener('scroll', handleButtonBackToTop);
-    }
-
+      document.removeEventListener("scroll", handleButtonBackToTop);
+    };
   }, [isDark]);
 
   return (
@@ -67,8 +70,12 @@ function Template({
         keywords={[`andriawan`, `blog`, `posts`, `tutorial`]}
         title={frontmatter.title}
         description={excerpt}
-        image={frontmatter.banner == null ? `https://res.cloudinary.com/andriawan/image/upload/v1585108772/images/home.png` : frontmatter.banner.publicURL}
-        options={{internal_image : frontmatter.banner !== null}}
+        image={
+          frontmatter.banner == null
+            ? `https://res.cloudinary.com/andriawan/image/upload/v1585108772/images/home.png`
+            : frontmatter.banner.publicURL
+        }
+        options={{ internal_image: frontmatter.banner !== null }}
       />
       <header>
         <div className="flex flex-wrap items-center md:flex hidden justify-between max-w-screen-sm mx-auto py-8">
@@ -81,7 +88,8 @@ function Template({
           <Link className="flex items-center no-underline text-teal-400" to="/">
             <Home className="text-teal-400 text-xl" />
           </Link>
-          <button className="focus:outline-none" 
+          <button
+            className="focus:outline-none"
             onClick={() => {
               toggleDark(!isDark);
               localStorage.dark = !isDark;
@@ -103,29 +111,31 @@ function Template({
           <h2 className="transition duration-300 ease-in-out text-xl px-4 py-4 md:px-0 md:py-0 text-gray-500 dark:text-gray-400 md:pb-4">
             <Calendar className="transition duration-300 ease-in-out date-creation inline-block dark:text-teal-400 pr-2" />
             {frontmatter.date}
-            <Time className="transition duration-300 ease-in-out inline-block dark:text-teal-400 ml-4 pr-2" />
-            <span className="transition duration-300 ease-in-out text-gray-500 dark:text-gray-400 text-xl">
-              {timeToRead} min reading
-            </span>
           </h2>
           {frontmatter.banner === null ? (
             ""
           ) : (
-            <Img className="mb-6" fluid={frontmatter.banner.childImageSharp.fluid} />
+            <GatsbyImage
+              className="mb-6"
+              image={frontmatter.banner.childImageSharp.gatsbyImageData}
+            />
           )}
           <div className="transition duration-300 ease-in-out blog-post-content pt-4 px-4 py-4 md:px-0 md:py-0 text-xl md:text-xl dark:text-gray-500">
-            <MDXRenderer>{body}</MDXRenderer>
+            {/* <MDXRenderer>{body}</MDXRenderer> */}
           </div>
         </div>
       </div>
-      <button onClick={() => {
-        window.scroll({
-          top: 0, 
-          behavior: 'smooth'
-        });
-      }} className="opacity-0 fixed invisible sm:visible up-arrow h-0 w-0 right-0 bottom-0 mr-4 mb-4 bg-gray-800 rounded-full visible">
-        <UpArrow className="text-center text-teal-400 text-5xl"/>
-        </button>
+      <button
+        onClick={() => {
+          window.scroll({
+            top: 0,
+            behavior: "smooth",
+          });
+        }}
+        className="opacity-0 fixed invisible sm:visible up-arrow h-0 w-0 right-0 bottom-0 mr-4 mb-4 bg-gray-800 rounded-full visible"
+      >
+        <UpArrow className="text-center text-teal-400 text-5xl" />
+      </button>
       <footer>
         <nav className="flex flex-col sm:flex-row sm:justify-between sm:max-w-screen-sm mx-auto md:py-8 text-sm">
           <p className="text-gray-700 text-center p-2">
@@ -198,7 +208,8 @@ function Template({
           <Link className="flex items-center no-underline text-teal-400" to="/">
             <Home className="text-teal-400 text-xl" />
           </Link>
-          <button className="focus:outline-none"
+          <button
+            className="focus:outline-none"
             onClick={() => {
               toggleDark(!isDark);
               localStorage.dark = !isDark;
@@ -216,10 +227,9 @@ function Template({
   );
 }
 export const pageQuery = graphql`
-  query($path: String!) {
+  query ($path: String!) {
     mdx(frontmatter: { path: { eq: $path } }) {
       body
-      timeToRead
       excerpt
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
@@ -228,13 +238,7 @@ export const pageQuery = graphql`
         banner {
           publicURL
           childImageSharp {
-            fluid(maxWidth: 800) {
-              src
-              srcSet
-              aspectRatio
-              sizes
-              base64
-            }
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
       }
