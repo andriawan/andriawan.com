@@ -7,8 +7,7 @@ import { ReactComponent as Calendar } from "../svg/calendar.svg";
 
 function Blog({ data }) {
   const { edges } = data.allMdx;
-  useEffect(() => {
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <Layout>
@@ -22,7 +21,7 @@ function Blog({ data }) {
         <h1 className="dark:text-gray-500 text-2xl md:text-4xl sm:text-5xl pb-2 text-gray-800">
           Blog Posts
         </h1>
-        {edges.map(edge => {
+        {edges.map((edge) => {
           return (
             <div className="pb-4" key={edge.node.id}>
               <h2 className="text-base md:text-2xl dark:text-gray-400">
@@ -30,7 +29,10 @@ function Blog({ data }) {
                   {edge.node.frontmatter.title}
                 </Link>
               </h2>
-              <p className="text-xs md:text-base dark:text-teal-400 text-teal-700"><Calendar className="inline-block dark:text-teal-400 mr-2" />{edge.node.frontmatter.date}</p>
+              <p className="text-xs md:text-base dark:text-teal-400 text-teal-700">
+                <Calendar className="inline-block dark:text-teal-400 mr-2" />
+                {edge.node.frontmatter.date}
+              </p>
             </div>
           );
         })}
@@ -40,14 +42,14 @@ function Blog({ data }) {
 }
 
 Blog.propTypes = {
-  data: PropTypes.object
+  data: PropTypes.object,
 };
 
 export default Blog;
 
 export const pageQuery = graphql`
   query {
-    allMdx(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMdx(sort: { frontmatter: { date: DESC } }) {
       edges {
         node {
           id

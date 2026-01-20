@@ -1,34 +1,42 @@
-path = require("path");
-module.exports = {
+import path from "path";
+import { fileURLToPath } from "url";
+import tailwindcss from "tailwindcss";
+import autoprefixer from "autoprefixer";
+import cssnano from "cssnano";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+export default {
   siteMetadata: {
     title: `andriawan.com`,
     description: `Andriawan's personal and professional website`,
     author: `@andriawan`,
     author_name: `Muhammad Irwan Andriawan`,
-    url: `https://andriawan.com`
+    url: `https://andriawan.com`,
   },
   plugins: [
-    "gatsby-plugin-svgr",
+    "gatsby-plugin-svgr-svgo",
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: path.join(__dirname, `src`, `images`)
-      }
+        path: path.join(__dirname, `src`, `images`),
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `markdown`,
-        path: path.join(__dirname, `blog`)
-      }
+        path: path.join(__dirname, `blog`),
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `markdown_img`,
-        path: path.join(__dirname, `blog`, `images`)
-      }
+        path: path.join(__dirname, `blog`, `images`),
+      },
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -37,28 +45,27 @@ module.exports = {
           {
             resolve: `gatsby-remark-prismjs`,
             options: {},
-          }
-          ]
-      }
+          },
+        ],
+      },
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-eslint`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: [`.mdx`, `.md`],
-        plugins: [`gatsby-remark-images`],
-        gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 400,
+        mdxOptions: {
+          remarkPlugins: [
+            {
+              resolve: `gatsby-remark-images`,
+              options: {
+                maxWidth: 400,
+              },
             },
-          },
-        ],
-      }
+          ],
+        },
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -69,18 +76,14 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#4dc0b5`,
         display: `minimal-ui`,
-        icon: `src/images/favicon.png`
-      }
+        icon: `src/images/favicon.png`,
+      },
     },
     {
       resolve: "gatsby-plugin-postcss",
       options: {
-        postCssPlugins: [
-          require(`tailwindcss`)(`./tailwind.config.js`),
-          require(`autoprefixer`),
-          require(`cssnano`)
-        ]
-      }
+        postCssPlugins: [tailwindcss, autoprefixer, cssnano],
+      },
     },
     {
       resolve: `gatsby-plugin-purgecss`,
@@ -88,22 +91,21 @@ module.exports = {
         printRejected: true,
         tailwind: true,
         purgeOnly: [`src/css/style.css`, `src`],
-        whitelist: [`mode-dark`],
         content: [
           path.join(process.cwd(), `./public/*.html`),
           path.join(process.cwd(), "src/**/!(*.d).{ts,js,jsx,tsx,md,mdx}"),
           path.join(process.cwd(), "gatsby-ssr.js"),
           path.join(
             process.cwd(),
-            "./node_modules/tailwindcss-dark-mode/prefers-dark.js"
+            "./node_modules/tailwindcss-dark-mode/prefers-dark.js",
           ),
           path.join(
             process.cwd(),
-            `./node_modules/tailwindcss-dark-mode/index.js`
-          )
-        ]
-      }
+            `./node_modules/tailwindcss-dark-mode/index.js`,
+          ),
+        ],
+      },
     },
-    `gatsby-plugin-offline`
-  ]
+    `gatsby-plugin-offline`,
+  ],
 };
